@@ -1,0 +1,10 @@
+*.iml
+.idea/
+*.ipr
+*.iws
+out/
+.idea_modules/
+atlassian-ide-plugin.xml
+.DS_Store
+target/
+output/
