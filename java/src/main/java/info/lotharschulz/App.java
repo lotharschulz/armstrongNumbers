@@ -10,14 +10,17 @@ public class App
     public static void main( String[] args ){
         System.out.println(
             MessageFormat.format("armstrong numbers between 100 & 999 are: \"{0}\"",
-                arrayList2String(getArmstrongNumbers(100, 999))));
+                    array2String(getArmstrongNumbers(100, 999))));
+        System.out.println(
+                MessageFormat.format("armstrong numbers between 100 & 999 are: \"{0}\"",
+                        arrayList2String(getArmstrongNumbersAlt(100, 999))));
     }
 
-    public static ArrayList<Integer> getArmstrongNumbers(int start, int end){
+    public static int[] getArmstrongNumbers(int start, int end){
         if (start < 1) throw new IllegalArgumentException("start has to be at least 0");
         if (end < start) throw new IllegalArgumentException("end has to be greater than start");
 
-        return App.intArrayToArrayListInteger(IntStream.range(start, end+1).filter(number -> App.isArmstrongNumber(number)).toArray());
+        return IntStream.range(start, end+1).filter(number -> App.isArmstrongNumber(number)).toArray();
     }
 
     public static ArrayList<Integer> getArmstrongNumbersAlt(int start, int end){
@@ -88,6 +91,18 @@ public class App
         StringBuilder sb = new StringBuilder();
         for (Object o : list){
             sb.append(o.toString()).append(", ");
+        }
+        if(sb.toString().length() < 2){
+            return sb.toString();
+        }
+        return sb.toString().substring(0, sb.toString().length()-2);
+    }
+
+    public static String array2String(int[] ints){
+        if (null == ints) return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < ints.length; i++){
+            sb.append(ints[i]).append(", ");
         }
         if(sb.toString().length() < 2){
             return sb.toString();

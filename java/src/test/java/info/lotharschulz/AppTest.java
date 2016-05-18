@@ -21,15 +21,13 @@ public class AppTest {
 
     @Test
     public void testGetArmstrongNumbers(){
-        //App.getArmstrongNumbers(300,310);
-        ArrayList<Integer> threeDigitArmstrongNumbers = new ArrayList<Integer>();
-        threeDigitArmstrongNumbers.add(153);
-        threeDigitArmstrongNumbers.add(370);
-        threeDigitArmstrongNumbers.add(371);
-        threeDigitArmstrongNumbers.add(407);
-        assertEquals(threeDigitArmstrongNumbers, App.getArmstrongNumbers(100,999));
-        threeDigitArmstrongNumbers.add(1);
-        assertNotEquals(threeDigitArmstrongNumbers, App.getArmstrongNumbers(100,999));
+        int[] threeDigitArmstrongNumbers = {153,370,371, 407};
+        assertEquals(threeDigitArmstrongNumbers[0], App.getArmstrongNumbers(100,999)[0]);
+        assertEquals(threeDigitArmstrongNumbers[1], App.getArmstrongNumbers(100,999)[1]);
+        assertEquals(threeDigitArmstrongNumbers[2], App.getArmstrongNumbers(100,999)[2]);
+        assertEquals(threeDigitArmstrongNumbers[3], App.getArmstrongNumbers(100,999)[3]);
+        int[] notThreeDigitArmstrongNumbers = {1,153,370,371, 407};
+        assertNotEquals(notThreeDigitArmstrongNumbers[0], App.getArmstrongNumbers(100,999)[0]);
     }
 
     @Test
@@ -108,6 +106,15 @@ public class AppTest {
         digits = new ArrayList<Integer>();
         assertEquals("", App.arrayList2String(digits));
         assertEquals("", App.arrayList2String(null));
+    }
+
+    @Test
+    public void testIntArray2String(){
+        int[] digits = {1,0,2};
+        assertEquals("1, 0, 2", App.array2String(digits));
+        digits = null;
+        assertEquals("", App.array2String(digits));
+        assertEquals("", App.array2String(null));
     }
 
     @Test
