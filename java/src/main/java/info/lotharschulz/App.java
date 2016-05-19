@@ -16,14 +16,14 @@ public class App
                         arrayList2String(getArmstrongNumbersAlt(100, 999))));
     }
 
-    public static int[] getArmstrongNumbers(int start, int end){
+    public static int[] getArmstrongNumbers(final int start, final int end){
         if (start < 1) throw new IllegalArgumentException("start has to be at least 0");
         if (end < start) throw new IllegalArgumentException("end has to be greater than start");
 
         return IntStream.range(start, end+1).filter(number -> App.isArmstrongNumber(number)).toArray();
     }
 
-    public static ArrayList<Integer> getArmstrongNumbersAlt(int start, int end){
+    public static ArrayList<Integer> getArmstrongNumbersAlt(final int start, final int end){
         if (start < 1) throw new IllegalArgumentException("start has to be at least 0");
         if (end < start) throw new IllegalArgumentException("end has to be greater than start");
 
@@ -34,11 +34,11 @@ public class App
         return results;
     }
 
-    public static boolean isArmstrongNumber(int i){
+    public static boolean isArmstrongNumber(final int i){
         return i == getDigits(i).stream().mapToInt(val -> (int)Math.pow(val.intValue(),getNumberOfDigits(i))).sum();
     }
 
-    public static boolean isArmstrongNumberAlt(int i){
+    public static boolean isArmstrongNumberAlt(final int i){
         int result = 0;
         int numberOfDigits = getNumberOfDigits(i);
         //int numberOfDigits = getNumberofDigitsAlt(i);
@@ -51,34 +51,35 @@ public class App
         return result == i;
     }
 
-    public static int getNumberOfDigits(int number){
+    public static int getNumberOfDigits(final int number){
         if (number == 0) return 1;
         return (int)Math.log10(number) + 1;
     }
 
-    public static int getNumberofDigitsAlt(int number){
+    public static int getNumberofDigitsAlt(final int number){
         if (number < 0) return new Integer(number).toString().length()-1;
         return new Integer(number).toString().length();
     }
 
-    public static ArrayList<Integer> getDigits(int number){
+    public static ArrayList<Integer> getDigits(final int number){
+        int nmbr = number;
         ArrayList<Integer> digits = new ArrayList<Integer>();
-        if(number>0){
-            while (number > 0) {
-                digits.add(number % 10);
-                number = number / 10;
+        if(nmbr>0){
+            while (nmbr > 0) {
+                digits.add(nmbr % 10);
+                nmbr = nmbr / 10;
             }
             Collections.reverse(digits);
-        } else if (number == 0) {
+        } else if (nmbr == 0) {
             digits.add(0);
         }
         return digits;
     }
 
-    public static ArrayList<Integer> getDigitsAlt(int number) {
+    public static ArrayList<Integer> getDigitsAlt(final int number) {
         ArrayList<Integer> digits = new ArrayList<Integer>();
         if(number >= 0) {
-            String iAsString = new Integer(number).toString();
+            final String iAsString = new Integer(number).toString();
             for (int k = 0; k < iAsString.length(); k++) {
                 digits.add(Integer.parseInt(iAsString.substring(k, k + 1)));
             }
@@ -86,19 +87,15 @@ public class App
         return digits;
     }
 
-    public static String arrayList2String(ArrayList<Integer> list){
+    public static String arrayList2String(final ArrayList<Integer> list){
         if (null == list) return "";
         StringBuilder sb = new StringBuilder();
-        for (Object o : list){
-            sb.append(o.toString()).append(", ");
-        }
-        if(sb.toString().length() < 2){
-            return sb.toString();
-        }
+        list.forEach( o -> sb.append(o.toString()).append(", ") );
+        if(sb.toString().length() < 2)  return sb.toString();
         return sb.toString().substring(0, sb.toString().length()-2);
     }
 
-    public static String array2String(int[] ints){
+    public static String array2String(final int[] ints){
         if (null == ints) return "";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < ints.length; i++){
@@ -110,7 +107,7 @@ public class App
         return sb.toString().substring(0, sb.toString().length()-2);
     }
 
-    public static ArrayList<Integer> intArrayToArrayListInteger(int[] i){
+    public static ArrayList<Integer> intArrayToArrayListInteger(final int[] i){
         if (null == i) return null;
         ArrayList<Integer> results = new ArrayList<Integer>();
         for(int a = 0; a < i.length; a++) results.add(i[a]);
