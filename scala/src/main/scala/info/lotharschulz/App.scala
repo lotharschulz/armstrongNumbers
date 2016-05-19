@@ -1,6 +1,6 @@
 package info.lotharschulz
 
-class App {
+object App {
   def main(args: Array[String]) =
     println("Hello World!")
 }
