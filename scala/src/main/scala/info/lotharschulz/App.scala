@@ -22,7 +22,6 @@ class ArmstrongNumbers() {
     case 0 => List(0)
     case _ => {
         var nmbr = number
-        var l = Nil
         var d = new ListBuffer[Int]()
         while (nmbr > 0) {
           d += (nmbr % 10)
