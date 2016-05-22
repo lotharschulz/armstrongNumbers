@@ -31,5 +31,13 @@ class ArmstrongNumbers() {
       }
     }
 
+  def getDigitsAlt(number: Int): List[Int] = {
+    if (number < 0){
+      List()
+    } else {
+      number.toString.toList.map(_.toString).map(_.toInt)
+    }
+  }
+
 }
 
