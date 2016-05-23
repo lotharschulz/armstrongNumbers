@@ -32,4 +32,14 @@ class AppSuite extends FlatSpec with BeforeAndAfter {
     assert(List() === armstrongNumbers.getDigitsAlt(-1))
   }
 
+  "isArmstrongNumber" should "be true for numbers: 153, 370, 371, 407 and false for other 3 digit numbers" in {
+    assert(true === armstrongNumbers.isArmstrongNumber(153))
+    assert(true === armstrongNumbers.isArmstrongNumber(370))
+    assert(true === armstrongNumbers.isArmstrongNumber(371))
+    assert(true === armstrongNumbers.isArmstrongNumber(407))
+    assert(false === armstrongNumbers.isArmstrongNumber(408))
+    assert(false === armstrongNumbers.isArmstrongNumber(100))
+    assert(false === armstrongNumbers.isArmstrongNumber(-100))
+  }
+
 }

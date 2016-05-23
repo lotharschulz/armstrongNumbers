@@ -1,6 +1,7 @@
 package info.lotharschulz
 
 import scala.math.log10;
+import scala.math.pow;
 import scala.collection.mutable.ListBuffer
 
 object App {
@@ -11,6 +12,11 @@ object App {
 class ArmstrongNumbers() {
   def generateDummyArmstrongNumbers(start: Int, end: Int): List[Int] = {
     List(start+1, end+2)
+  }
+
+  def isArmstrongNumber(number: Int): Boolean = {
+    if(number > 0) number == getDigits(number).toStream.map( x => pow(x, getNumberOfDigits(number)) ).sum
+    else false
   }
 
   def getNumberOfDigits(number: Int): Int = number match {
