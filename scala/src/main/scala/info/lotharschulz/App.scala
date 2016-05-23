@@ -15,7 +15,7 @@ class ArmstrongNumbers() {
   }
 
   def isArmstrongNumber(number: Int): Boolean = {
-    if(number > 0) number == getDigits(number).toStream.map( x => pow(x, getNumberOfDigits(number)) ).sum
+    if(number > -1) number == getDigits(number).toStream.map( x => pow(x, getNumberOfDigits(number)) ).sum
     else false
   }
 

@@ -46,7 +46,13 @@ public class AppTest {
     @Test
     public void testIsArmstrongNumber(){
         assertTrue(App.isArmstrongNumber(153));
+        assertTrue(App.isArmstrongNumber(370));
+        assertTrue(App.isArmstrongNumber(371));
+        assertTrue(App.isArmstrongNumber(407));
         assertFalse(App.isArmstrongNumber(154));
+        assertFalse(App.isArmstrongNumber(-100));
+        assertTrue(App.isArmstrongNumber(0));
+        assertFalse(App.isArmstrongNumber(-1));
     }
 
     @Test

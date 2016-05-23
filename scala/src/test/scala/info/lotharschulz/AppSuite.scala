@@ -40,6 +40,8 @@ class AppSuite extends FlatSpec with BeforeAndAfter {
     assert(false === armstrongNumbers.isArmstrongNumber(408))
     assert(false === armstrongNumbers.isArmstrongNumber(100))
     assert(false === armstrongNumbers.isArmstrongNumber(-100))
+    assert(false === armstrongNumbers.isArmstrongNumber(0))
+    assert(false === armstrongNumbers.isArmstrongNumber(-1))
   }
 
 }

@@ -35,7 +35,8 @@ public class App
     }
 
     public static boolean isArmstrongNumber(final int i){
-        return i == getDigits(i).stream().mapToInt(val -> (int)Math.pow(val.intValue(),getNumberOfDigits(i))).sum();
+        if(i > -1) return i == getDigits(i).stream().mapToInt(val -> (int)Math.pow(val.intValue(),getNumberOfDigits(i))).sum();
+        else return false;
     }
 
     public static boolean isArmstrongNumberAlt(final int i){
