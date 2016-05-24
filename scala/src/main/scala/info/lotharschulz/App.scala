@@ -19,9 +19,12 @@ class ArmstrongNumbers() {
     number == getDigits(number).map( x => pow(x, getNumberOfDigits(number)) ).sum
   }
 
-  def getNumberOfDigits(number: Int): Int = number match {
-    case 0 => 1
-    case _ => (log10(number) + 1).toInt
+  def getNumberOfDigits(number: Int): Int = {
+    require(number > -1, "number must be greater than -1")
+    number match {
+      case 0 => 1
+      case _ => (log10(number) + 1).toInt
+    }
   }
 
   def getDigits(number: Int): List[Int] = {
