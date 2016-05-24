@@ -15,8 +15,8 @@ class ArmstrongNumbers() {
   }
 
   def isArmstrongNumber(number: Int): Boolean = {
-    if(number > -1) number == getDigits(number).toStream.map( x => pow(x, getNumberOfDigits(number)) ).sum
-    else false
+    require(number > -1, "number must be greater than -1")
+    number == getDigits(number).map( x => pow(x, getNumberOfDigits(number)) ).sum
   }
 
   def getNumberOfDigits(number: Int): Int = number match {
@@ -24,9 +24,11 @@ class ArmstrongNumbers() {
     case _ => (log10(number) + 1).toInt
   }
 
-  def getDigits(number: Int): List[Int] = number match {
-    case 0 => List(0)
-    case _ => {
+  def getDigits(number: Int): List[Int] = {
+    require(number > -1, "number must be greater than -1")
+    number match {
+      case 0 => List(0)
+      case _ => {
         var nmbr = number
         var d = new ListBuffer[Int]()
         while (nmbr > 0) {
@@ -36,13 +38,11 @@ class ArmstrongNumbers() {
         d.toList.reverse
       }
     }
+  }
 
   def getDigitsAlt(number: Int): List[Int] = {
-    if (number < 0){
-      List()
-    } else {
-      number.toString.toList.map(_.toString).map(_.toInt)
-    }
+    require(number > -1, "number must be greater than -1")
+    number.toString.toList.map(_.toString).map(_.toInt)
   }
 
 }

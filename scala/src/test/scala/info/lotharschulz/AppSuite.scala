@@ -1,9 +1,8 @@
 package info.lotharschulz
 
-import org.scalatest.FlatSpec
-import org.scalatest.BeforeAndAfter
+import org.scalatest.{Matchers, FlatSpec, BeforeAndAfter}
 
-class AppSuite extends FlatSpec with BeforeAndAfter {
+class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
 
   var armstrongNumbers: ArmstrongNumbers = _
 
@@ -23,13 +22,23 @@ class AppSuite extends FlatSpec with BeforeAndAfter {
   "getDigits" should "get digits from a number" in {
     assert(List(1,0,0) === armstrongNumbers.getDigits(100))
     assert(List(0) === armstrongNumbers.getDigits(0))
-    assert(List() === armstrongNumbers.getDigits(-1))
+  }
+
+  "getDigits" should "produce an IllegalArgumentException" in {
+    a[IllegalArgumentException] should be thrownBy {
+      assert(List() === armstrongNumbers.getDigits(-1))
+    }
   }
 
   "getDigitsAlt" should "get digits from a number" in {
     assert(List(1,0,0) === armstrongNumbers.getDigitsAlt(100))
     assert(List(0) === armstrongNumbers.getDigitsAlt(0))
-    assert(List() === armstrongNumbers.getDigitsAlt(-1))
+  }
+
+  "getDigitsAlt" should "produce an IllegalArgumentException" in {
+    a[IllegalArgumentException] should be thrownBy {
+      assert(List() === armstrongNumbers.getDigitsAlt(-1))
+    }
   }
 
   "isArmstrongNumber" should "be true for numbers: 153, 370, 371, 407 and false for other 3 digit numbers" in {
@@ -37,11 +46,17 @@ class AppSuite extends FlatSpec with BeforeAndAfter {
     assert(true === armstrongNumbers.isArmstrongNumber(370))
     assert(true === armstrongNumbers.isArmstrongNumber(371))
     assert(true === armstrongNumbers.isArmstrongNumber(407))
+    assert(true === armstrongNumbers.isArmstrongNumber(0))
+
     assert(false === armstrongNumbers.isArmstrongNumber(408))
     assert(false === armstrongNumbers.isArmstrongNumber(100))
-    assert(false === armstrongNumbers.isArmstrongNumber(-100))
-    assert(false === armstrongNumbers.isArmstrongNumber(0))
-    assert(false === armstrongNumbers.isArmstrongNumber(-1))
+  }
+
+  "isArmstrongNumber" should "produce an IllegalArgumentException" in {
+    a[IllegalArgumentException] should be thrownBy {
+      assert(false === armstrongNumbers.isArmstrongNumber(-100))
+      assert(false === armstrongNumbers.isArmstrongNumber(-1))
+    }
   }
 
 }
