@@ -5,13 +5,17 @@ import scala.math.pow;
 import scala.collection.mutable.ListBuffer
 
 object App {
-  def main(args: Array[String]) =
-    println("Hello World!")
+  def main(args: Array[String]): Unit = {
+    val armstrongNumbers: ArmstrongNumbers = new ArmstrongNumbers
+    Console.println(armstrongNumbers.generateArmstrongNumbers(100, 1000))
+  }
 }
 
-class ArmstrongNumbers() {
-  def generateDummyArmstrongNumbers(start: Int, end: Int): List[Int] = {
-    List(start+1, end+2)
+class ArmstrongNumbers {
+  def generateArmstrongNumbers(from: Int, to: Int): List[Int] = {
+    require(from > -1, "from number must be greater than -1")
+    require(to > from, "to number must be greater than from number")
+    for (i <- List.range(from, to) if isArmstrongNumber(i)) yield i
   }
 
   def isArmstrongNumber(number: Int): Boolean = {

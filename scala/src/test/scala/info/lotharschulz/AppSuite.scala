@@ -10,8 +10,15 @@ class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
     armstrongNumbers = new ArmstrongNumbers
   }
 
-  "method generateDummyArmstrongNumbers is called" should "produce a list like" in {
-    assert(List(2, 4) === armstrongNumbers.generateDummyArmstrongNumbers(1, 2))
+  "generateArmstrongNumbers" should "produce the number of armstrong numbers for the given parameter" in {
+    assert(List(153, 370, 371, 407) === armstrongNumbers.generateArmstrongNumbers(100, 1000))
+  }
+
+  "generateArmstrongNumbers" should "produce an IllegalArgumentException" in {
+    a[IllegalArgumentException] should be thrownBy {
+      armstrongNumbers.generateArmstrongNumbers(-1, 100)
+      armstrongNumbers.generateArmstrongNumbers(10, 9)
+    }
   }
 
   "getNumberOfDigits" should "produce the number of digits for the given parameter" in {
@@ -21,7 +28,7 @@ class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
 
   "getNumberOfDigits" should "produce an IllegalArgumentException" in {
     a[IllegalArgumentException] should be thrownBy {
-      assert(1 === armstrongNumbers.getNumberOfDigits(-1))
+      armstrongNumbers.getNumberOfDigits(-1)
     }
   }
 
@@ -32,7 +39,7 @@ class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
 
   "getDigits" should "produce an IllegalArgumentException" in {
     a[IllegalArgumentException] should be thrownBy {
-      assert(List() === armstrongNumbers.getDigits(-1))
+      armstrongNumbers.getDigits(-1)
     }
   }
 
@@ -43,7 +50,7 @@ class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
 
   "getDigitsAlt" should "produce an IllegalArgumentException" in {
     a[IllegalArgumentException] should be thrownBy {
-      assert(List() === armstrongNumbers.getDigitsAlt(-1))
+      armstrongNumbers.getDigitsAlt(-1)
     }
   }
 
@@ -60,8 +67,8 @@ class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
 
   "isArmstrongNumber" should "produce an IllegalArgumentException" in {
     a[IllegalArgumentException] should be thrownBy {
-      assert(false === armstrongNumbers.isArmstrongNumber(-100))
-      assert(false === armstrongNumbers.isArmstrongNumber(-1))
+      armstrongNumbers.isArmstrongNumber(-100)
+      armstrongNumbers.isArmstrongNumber(-1)
     }
   }
 
