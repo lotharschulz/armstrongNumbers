@@ -1,14 +1,13 @@
 package info.lotharschulz
 
-import org.scalatest.{Matchers, FlatSpec, BeforeAndAfter}
+import org.scalacheck.Gen
+import org.scalatest.prop.GeneratorDrivenPropertyChecks
+import org.scalatest.{Matchers, FlatSpec}
 
-class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
 
-  var armstrongNumbers: ArmstrongNumbers = _
+class AppSuite extends FlatSpec with Matchers  with GeneratorDrivenPropertyChecks {
 
-  before {
-    armstrongNumbers = new ArmstrongNumbers
-  }
+  val armstrongNumbers: ArmstrongNumbers = new ArmstrongNumbers
 
   "generateArmstrongNumbers" should "produce the number of armstrong numbers for the given parameter" in {
     assert(List(153, 370, 371, 407) === armstrongNumbers.generateArmstrongNumbers(100, 1000))
@@ -54,15 +53,22 @@ class AppSuite extends FlatSpec with Matchers with BeforeAndAfter {
     }
   }
 
-  "isArmstrongNumber" should "be true for numbers: 153, 370, 371, 407 and false for other 3 digit numbers" in {
+  "isArmstrongNumber" should "be true for numbers: 153, 370, 371, 407" in {
     assert(true === armstrongNumbers.isArmstrongNumber(153))
     assert(true === armstrongNumbers.isArmstrongNumber(370))
     assert(true === armstrongNumbers.isArmstrongNumber(371))
     assert(true === armstrongNumbers.isArmstrongNumber(407))
     assert(true === armstrongNumbers.isArmstrongNumber(0))
+  }
 
-    assert(false === armstrongNumbers.isArmstrongNumber(408))
-    assert(false === armstrongNumbers.isArmstrongNumber(100))
+  val nums = Gen.choose(100,1000)
+
+  "isArmstrongNumber" should "be false for all 3 digit numbers except: 153, 370, 371, 407" in {
+    forAll( (nums, "n") ) { n =>
+      whenever (n != 153 && n != 370 && n != 371 && n != 407) {
+        assert(false === armstrongNumbers.isArmstrongNumber(n));
+      }
+    }
   }
 
   "isArmstrongNumber" should "produce an IllegalArgumentException" in {
