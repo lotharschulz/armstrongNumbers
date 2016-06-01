@@ -11,9 +11,11 @@ class FixturesTest(unittest.TestCase):
     def tearDown(self):
         del self.armstrongnumbers
 
+    # @TODO: test ValueErrors
     def test_generate_armstrong_numbers(self):
         self.assertEqual([], self.armstrongnumbers.generate_armstrong_numbers(100, 1000))
 
+    # @TODO: test ValueErrors
     def test_generate_armstrong_numbers_alt(self):
         self.assertEqual([], self.armstrongnumbers.generate_armstrong_numbers_alt(100, 1000))
 
