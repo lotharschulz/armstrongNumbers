@@ -5,7 +5,10 @@ class ArmstrongNumbers:
 
     def generate_armstrong_numbers(self, begin, end):
         self.armstrongNumbers = []
-        return self.armstrongNumbers
+        return [i for i in range(begin, end+1) if self.is_armstrong_number(i)]
+
+    def is_armstrong_number(self, number):
+        return False
 
 if __name__ == '__main__':
     a = ArmstrongNumbers()
