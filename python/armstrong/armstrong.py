@@ -23,6 +23,10 @@ class ArmstrongNumbers:
 
     def is_armstrong_number(self, number):
         self.check_number(number)
+        sum = 0
+        for nmbr in self.get_digits(number):
+            sum += math.pow(nmbr, self.get_number_of_digits(number))
+        if number == sum: return True
         return False
 
     def get_digits(self, number):
