@@ -1,5 +1,5 @@
 import numbers
-
+import math
 
 class ArmstrongNumbers:
 
@@ -15,8 +15,7 @@ class ArmstrongNumbers:
     def generate_armstrong_numbers_alt(self, begin, end):
         self.check_number(begin)
         self.check_number(end)
-        generator = self.generate_armstrong_numbers_gen(begin, end)
-        return [x for x in generator if self.is_armstrong_number(x)]
+        return [x for x in self.generate_armstrong_numbers_gen(begin, end) if self.is_armstrong_number(x)]
 
     def generate_armstrong_numbers_gen(self, begin, end):
         for i in range(begin, end+1):
@@ -36,6 +35,11 @@ class ArmstrongNumbers:
             number = int(number / 10)
         digits.reverse()
         return digits
+
+    def get_number_of_digits(self, number):
+        self.check_number(number)
+        if number == 0: return 1
+        return int(math.log(number, 10)) + 1
 
     def check_number(self, number):
         if not isinstance(number, numbers.Number):

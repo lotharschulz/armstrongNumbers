@@ -44,5 +44,11 @@ class FixturesTest(unittest.TestCase):
         self.assertRaises(ValueError, self.armstrongnumbers.get_digits, "a")
         self.assertRaises(ValueError, self.armstrongnumbers.get_digits, -1)
 
+    def test_get_number_of_digits(self):
+        self.assertEquals(1, self.armstrongnumbers.get_number_of_digits(0))
+        self.assertEquals(3, self.armstrongnumbers.get_number_of_digits(100))
+        self.assertRaises(ValueError, self.armstrongnumbers.get_number_of_digits, "a")
+        self.assertRaises(ValueError, self.armstrongnumbers.get_number_of_digits, -1)
+
 if __name__ == '__main__':
     unittest.main()
