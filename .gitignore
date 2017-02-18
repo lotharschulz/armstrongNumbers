@@ -9,3 +9,4 @@ atlassian-ide-plugin.xml
 target/
 output/
 *.log
+.lein-failures
