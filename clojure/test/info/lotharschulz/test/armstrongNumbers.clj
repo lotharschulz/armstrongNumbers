@@ -2,13 +2,14 @@
   (:use midje.sweet)
   (:use [info.lotharschulz.armstrongNumbers]))
 
-(facts "about getDigits`"
-       (fact "it normally returns the first element"
-             (getDigits [1 2 3] :default) => 1
-             (getDigits '(1 2 3) :default) => 1)
-
-       (fact "nil value is returned for empty sequences"
-             (getDigits [] :default) => nil
-             (getDigits '() :default) => nil
-             (getDigits nil :default) => :default
-             (getDigits (filter even? [1 3 5]) :default) => nil))
+(facts "about getNumberOfDigits"
+       (fact "return number of digits if given number greater then -1"
+             (getNumberOfDigits [100]) => 3
+             (getNumberOfDigits [10000]) => 5
+             (getNumberOfDigits [0]) => 1
+             (getNumberOfDigits [-1]) => nil
+             (getNumberOfDigits ["a"]) => nil
+             (getNumberOfDigits [1.0]) => nil
+             (getNumberOfDigits [["a", 1]]) => nil
+             )
+       )
