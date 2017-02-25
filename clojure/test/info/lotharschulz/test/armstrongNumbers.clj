@@ -11,8 +11,16 @@
              (getNumberOfDigits [0]) => 1
              (= 4 (getNumberOfDigits [0])) => falsey
              (getNumberOfDigits [-1]) => nil
+             (getNumberOfDigits [nil]) => nil
              (getNumberOfDigits ["a"]) => nil
              (getNumberOfDigits [1.0]) => nil
              (getNumberOfDigits [["a", 1]]) => nil
+             )
+       (fact "return digits of a given number"
+             (getDigits [100]) => '(1 0 0)
+             (getDigits [0]) => '(0)
+             (getDigits [-1]) => '()
+             (getDigits [nil]) => ()
+             (getDigits ["foo bla fasel"]) => '()
              )
        )
