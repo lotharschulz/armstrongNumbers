@@ -23,4 +23,14 @@
              (getDigits [nil]) => ()
              (getDigits ["foo bla fasel"]) => '()
              )
+       (fact "armstrong number check for 153, 370, 371, 407"
+             (isArmstrongNumber [153]) => truthy
+             (isArmstrongNumber [370]) => truthy
+             (isArmstrongNumber [371]) => truthy
+             (isArmstrongNumber [407]) => truthy
+             (isArmstrongNumber [154]) => falsey
+             (isArmstrongNumber [369]) => falsey
+             (isArmstrongNumber [372]) => falsey
+             (isArmstrongNumber [406]) => falsey
+             )
        )
