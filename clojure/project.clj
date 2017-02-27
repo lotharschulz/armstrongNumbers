@@ -1,5 +1,7 @@
-(defproject armstrongNumbersClojure "0.0.1"
-  :description "cloure armstrong numbers"
-  :dependencies [[org.clojure/clojure "1.4.0"]]
-  :profiles {:dev {:dependencies [[midje "1.5.1"]]}}
-  :main info.lotharschulz.armstrongNumbers)
+(defproject armstrong_numbers "0.1.0-SNAPSHOT"
+  :dependencies [[org.clojure/clojure "1.8.0"]]
+  :main ^:skip-aot armstrong_numbers.armstrong_numbers
+  :target-path "target/%s"
+  ; :profiles {:uberjar {:aot :all}}
+  :profiles {:dev {:dependencies [[midje "1.7.0"]]}}
+  )
