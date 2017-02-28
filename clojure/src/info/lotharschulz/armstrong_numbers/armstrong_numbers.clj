@@ -8,10 +8,7 @@
     1
     (if (pos? n )
       (+ (int (Math/log10 n )) 1)
-      nil
-      )
-    )
-  )
+      nil)))
 
 (defn getDigits [^Integer n]
   {:pre [(not (nil? n)) (integer? n)]}
@@ -20,10 +17,7 @@
       '(0)
       (if (pos? n)
         (map #(Character/getNumericValue %) (str n))
-        '()
-        )
-      )
-  )
+        '())))
 
 (defn isArmstrongNumber [^Integer n]
   {:pre [(not (nil? n)) (integer? n)]}
@@ -32,10 +26,7 @@
     false
     (if (pos? n)
       (= n (reduce + (map #(int (Math/pow % (getNumberOfDigits n))) (getDigits n)  ) ) )
-      false
-      ) 
-    )
-  )
+      false)))
 
 (defn generateArmstrongNumbers [^Integer from, ^Integer to]
   {:pre [(not (nil? from)) (integer? from) (pos? from) (not (nil? to)) (integer? to) (pos? to) ]}
@@ -44,6 +35,4 @@
     (for [x (range from to) 
           :when (true? (isArmstrongNumber x) )]
       x)
-    '()
-    )
-  )
+    '()))
