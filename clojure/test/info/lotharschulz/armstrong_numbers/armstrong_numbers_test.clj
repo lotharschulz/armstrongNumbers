@@ -47,5 +47,17 @@
              (isArmstrongNumber 1.0) => (throws AssertionError)
              (isArmstrongNumber ["a", 1]) => (throws AssertionError)
              )
+       (fact "generate armstrong numbers from 100 to 1000"
+             (generateArmstrongNumbers 100 1000) => '(153 370 371 407))
+             (generateArmstrongNumbers 0 1000) => (throws AssertionError)
+             (generateArmstrongNumbers 1000 0) => (throws AssertionError)
+             (generateArmstrongNumbers 2 2) => '()
+             (generateArmstrongNumbers -1 1000) => (throws AssertionError)
+             (generateArmstrongNumbers 1000 -1) => (throws AssertionError)
+             (generateArmstrongNumbers -2 -2) => (throws AssertionError)
+             (generateArmstrongNumbers nil nil) => (throws AssertionError)
+             (generateArmstrongNumbers "a" "b") => (throws AssertionError)
+             (generateArmstrongNumbers 1.0 2.0) => (throws AssertionError)
+             (generateArmstrongNumbers ["a", 1] ["b", 2]) => (throws AssertionError)
        )
        

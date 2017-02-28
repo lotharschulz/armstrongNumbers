@@ -28,17 +28,22 @@
 (defn isArmstrongNumber [^Integer n]
   {:pre [(not (nil? n)) (integer? n)]}
   "Returns true if the given number bigger than -1 is an armstrong number"
-  n
-  )
-
-(defn isArmstrongNumber [^Integer n]
-  {:pre [(not (nil? n)) (integer? n)]}
-  "Returns true if the given number bigger than -1 is an armstrong number"
   (if (zero? n)
     false
     (if (pos? n)
       (= n (reduce + (map #(int (Math/pow % (getNumberOfDigits n))) (getDigits n)  ) ) )
       false
       ) 
+    )
+  )
+
+(defn generateArmstrongNumbers [^Integer from, ^Integer to]
+  {:pre [(not (nil? from)) (integer? from) (pos? from) (not (nil? to)) (integer? to) (pos? to) ]}
+  "generate armstrong numbers for ranges of ints greater than 0 defined by from and to"
+  (if (< from to)
+    (for [x (range from to) 
+          :when (true? (isArmstrongNumber x) )]
+      x)
+    '()
     )
   )
