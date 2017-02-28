@@ -31,18 +31,21 @@
              (isArmstrongNumber 1.0) => (throws AssertionError)
              (isArmstrongNumber ["a", 1]) => (throws AssertionError)
              )
-       ;(fact "armstrong number check for 153, 370, 371, 407"
-       ;;;       (isArmstrongNumber [153]) => truthy
-       ;;;              (isArmstrongNumber [370]) => truthy
-       ;;;              (isArmstrongNumber [371]) => truthy
-       ;;;              (isArmstrongNumber [407]) => truthy
-       ;;;              (isArmstrongNumber [154]) => falsey
-       ;;;              (isArmstrongNumber [369]) => falsey
-       ;;;              (isArmstrongNumber [372]) => falsey
-       ;;;              (isArmstrongNumber [406]) => falsey
-       ;      (isArmstrongNumber nil) => (throws AssertionError)
-       ;      (isArmstrongNumber "a") => (throws AssertionError)
-       ;      (isArmstrongNumber 1.0) => (throws AssertionError)
-       ;      (isArmstrongNumber ["a", 1]) => (throws AssertionError)
-       ;      )
+       (fact "armstrong number check for 153, 370, 371, 407"
+             (isArmstrongNumber 153) => truthy
+             (isArmstrongNumber 370) => truthy
+             (isArmstrongNumber 371) => truthy
+             (isArmstrongNumber 407) => truthy
+             (isArmstrongNumber 154) => falsey
+             (isArmstrongNumber 369) => falsey
+             (isArmstrongNumber 372) => falsey
+             (isArmstrongNumber 406) => falsey
+             (isArmstrongNumber 0) => falsey
+             (isArmstrongNumber -1) => falsey
+             (isArmstrongNumber nil) => (throws AssertionError)
+             (isArmstrongNumber "a") => (throws AssertionError)
+             (isArmstrongNumber 1.0) => (throws AssertionError)
+             (isArmstrongNumber ["a", 1]) => (throws AssertionError)
+             )
        )
+       

@@ -31,9 +31,14 @@
   n
   )
 
-;(defn isArmstrongNumber [^Integer n]
-;  "Returns true if the given number bigger than -1 is an armstrong number"
-;  {:pre [(not (nil? n)) (integer? n)]}
-;  ;; (= (nth n 0) ( (map Math/pow (getDigits[(nth n 0)]) (getNumberOfDigits [(nth n 0)]) )  ) )
-;  n
-;  )
+(defn isArmstrongNumber [^Integer n]
+  {:pre [(not (nil? n)) (integer? n)]}
+  "Returns true if the given number bigger than -1 is an armstrong number"
+  (if (zero? n)
+    false
+    (if (pos? n)
+      (= n (reduce + (map #(int (Math/pow % (getNumberOfDigits n))) (getDigits n)  ) ) )
+      false
+      ) 
+    )
+  )
