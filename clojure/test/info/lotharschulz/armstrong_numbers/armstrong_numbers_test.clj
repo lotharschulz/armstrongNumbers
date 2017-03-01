@@ -17,9 +17,9 @@
              (get-number-of-digits ["a", 1]) => (throws AssertionError)
              )
        (fact "list of digits for given number"
-             (get-digits 100) => '(1 0 0)
-             (get-digits 0) => '(0)
-             (get-digits -1) => '()
+             (get-digits 100) => [1 0 0]
+             (get-digits 0) => [0]
+             (get-digits -1) => []
              (get-digits nil) => (throws AssertionError)
              (get-digits "a") => (throws AssertionError)
              (get-digits 1.0) => (throws AssertionError)
@@ -42,10 +42,10 @@
              (is-armstrong-number ["a", 1]) => (throws AssertionError)
              )
        (fact "generate armstrong numbers from 100 to 1000"
-             (generate-armstrong-numbers 100 1000) => '(153 370 371 407))
+             (generate-armstrong-numbers 100 1000) => [153 370 371 407])
              (generate-armstrong-numbers 0 1000) => (throws AssertionError)
              (generate-armstrong-numbers 1000 0) => (throws AssertionError)
-             (generate-armstrong-numbers 2 2) => '()
+             (generate-armstrong-numbers 2 2) => []
              (generate-armstrong-numbers -1 1000) => (throws AssertionError)
              (generate-armstrong-numbers 1000 -1) => (throws AssertionError)
              (generate-armstrong-numbers -2 -2) => (throws AssertionError)
