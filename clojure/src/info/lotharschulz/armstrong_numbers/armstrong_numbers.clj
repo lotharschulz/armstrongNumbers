@@ -1,4 +1,4 @@
-(ns info.lotharschulz.armstrong_numbers.armstrong_numbers
+(ns info.lotharschulz.armstrong-numbers.armstrong-numbers
   (:import [java.Math]))
 
 (defn get-number-of-digits [^Integer n]
@@ -7,10 +7,10 @@
   (if (zero? n)
     1
     (if (pos? n )
-      (+ (int (Math/log10 n )) 1)
+      (inc (int (Math/log10 n )))
       nil)))
 
-(defn get-digits [^Integer n]
+(defn get-digits-alt [^Integer n]
   {:pre [(not (nil? n)) (integer? n)]}
   "return number of digits of given int n"
     (if (zero? n)
@@ -18,6 +18,12 @@
       (if (pos? n)
         (into [] (map #(Character/getNumericValue %) (str n)))
         [])))
+
+(defn get-digits [^Integer n]
+  {:pre [(not (nil? n)) (integer? n)]}
+  "return number of digits of given int n"
+  (when-not (zero? n)
+    (lazy-seq (cons (rem n 10) (get-digits (quot n 10))))))
 
 (defn is-armstrong-number [^Integer n]
   {:pre [(not (nil? n)) (integer? n)]}

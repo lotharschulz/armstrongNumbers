@@ -1,6 +1,6 @@
-(ns info.lotharschulz.armstrong_numbers.armstrong_numbers_test
+(ns info.lotharschulz.armstrong-numbers.armstrong-numbers-test
   (:require [midje.sweet :refer :all]
-            [info.lotharschulz.armstrong_numbers.armstrong_numbers :refer :all]))
+            [info.lotharschulz.armstrong-numbers.armstrong-numbers :refer :all]))
 
 (facts "about armstrong numbers"
        (fact "return number of digits if given number greater then -1"
@@ -24,6 +24,15 @@
              (get-digits "a") => (throws AssertionError)
              (get-digits 1.0) => (throws AssertionError)
              (get-digits ["a", 1]) => (throws AssertionError)
+             )
+       (fact "list of digits for given number"
+             (get-digits-alt 100) => [1 0 0]
+             (get-digits-alt 0) => [0]
+             (get-digits-alt -1) => []
+             (get-digits-alt nil) => (throws AssertionError)
+             (get-digits-alt "a") => (throws AssertionError)
+             (get-digits-alt 1.0) => (throws AssertionError)
+             (get-digits-alt ["a", 1]) => (throws AssertionError)
              )
        (fact "armstrong number check for 153, 370, 371, 407"
              (is-armstrong-number 153) => truthy
