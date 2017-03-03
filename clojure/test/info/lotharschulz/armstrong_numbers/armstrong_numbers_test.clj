@@ -5,11 +5,11 @@
 (facts "about armstrong numbers"
        (fact "return number of digits if given number greater then -1"
              (get-number-of-digits 100) => 3
-             (= 4 (get-number-of-digits 10000)) => falsey
+             (get-number-of-digits 10000) =not=> 4
              (get-number-of-digits 10000) => 5
-             (= 4 (get-number-of-digits 10000)) => falsey
+             (get-number-of-digits 10000) =not=> 4
              (get-number-of-digits 0) => 1
-             (= 4 (get-number-of-digits 0)) => falsey
+             (get-number-of-digits 0) =not=> 4
              (get-number-of-digits -1) => nil
              (get-number-of-digits nil) => (throws AssertionError)
              (get-number-of-digits "a") => (throws AssertionError)
@@ -35,20 +35,20 @@
              (get-digits-alt ["a", 1]) => (throws AssertionError)
              )
        (fact "armstrong number check for 153, 370, 371, 407"
-             (is-armstrong-number 153) => truthy
-             (is-armstrong-number 370) => truthy
-             (is-armstrong-number 371) => truthy
-             (is-armstrong-number 407) => truthy
-             (is-armstrong-number 154) => falsey
-             (is-armstrong-number 369) => falsey
-             (is-armstrong-number 372) => falsey
-             (is-armstrong-number 406) => falsey
-             (is-armstrong-number 0) => falsey
-             (is-armstrong-number -1) => falsey
-             (is-armstrong-number nil) => (throws AssertionError)
-             (is-armstrong-number "a") => (throws AssertionError)
-             (is-armstrong-number 1.0) => (throws AssertionError)
-             (is-armstrong-number ["a", 1]) => (throws AssertionError)
+             (armstrong-number-alt? 153) => truthy
+             (armstrong-number-alt? 370) => truthy
+             (armstrong-number-alt? 371) => truthy
+             (armstrong-number-alt? 407) => truthy
+             (armstrong-number-alt? 154) => falsey
+             (armstrong-number-alt? 369) => falsey
+             (armstrong-number-alt? 372) => falsey
+             (armstrong-number-alt? 406) => falsey
+             (armstrong-number-alt? 0) => falsey
+             (armstrong-number-alt? -1) => falsey
+             (armstrong-number-alt? nil) => (throws AssertionError)
+             (armstrong-number-alt? "a") => (throws AssertionError)
+             (armstrong-number-alt? 1.0) => (throws AssertionError)
+             (armstrong-number-alt? ["a", 1]) => (throws AssertionError)
              )
        (fact "armstrong number check (?) for 153, 370, 371, 407"
              (armstrong-number? 153) => truthy

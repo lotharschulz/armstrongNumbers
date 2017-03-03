@@ -29,7 +29,7 @@
   (when-not (zero? n)
     (lazy-seq (cons (rem n 10) (get-digits (quot n 10))))))
 
-(defn is-armstrong-number
+(defn armstrong-number-alt?
   "Returns true if the given number bigger than -1 is an armstrong number"
   [^Integer n]
   {:pre [(some? n) (integer? n)]}
@@ -57,6 +57,6 @@
   {:pre [(some? from) (integer? from) (some? to) (integer? to) ]}
   (if (< from to)
     (into [] (for [x (range from to)
-                   :when (true? (is-armstrong-number x))]
+                   :when (true? (armstrong-number-alt? x))]
                x))
      []))
