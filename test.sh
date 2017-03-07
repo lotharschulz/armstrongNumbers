@@ -15,3 +15,4 @@ python test_armstrong.py
 cd ../../clojure
 echo "clojure leiningen tests"
 lein test
+cd ..
