@@ -1,6 +1,4 @@
-language: python
-python:
-  - "3.4"
+language: java 
 
 script:
     - jdk_switcher use oraclejdk8
