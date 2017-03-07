@@ -31,3 +31,13 @@ python armstrong/armstrong.py
 cd test
 python test_armstrong.py
 ```
+
+## clojure
+#### run
+```
+tbd
+```
+#### test
+```
+lein test
+```

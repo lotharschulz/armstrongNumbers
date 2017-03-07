@@ -9,3 +9,7 @@ atlassian-ide-plugin.xml
 target/
 output/
 *.log
+# clojure
+.lein-failures
+.lein-repl-history
+.nrepl-port
