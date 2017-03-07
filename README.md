@@ -1,5 +1,7 @@
-# Armstrong Numbers Implementations ...
-... using different programming languages, namely
+# Armstrong Numbers implementations
+using different programming languages.
+
+[![Build Status](https://travis-ci.org/lotharschulz/armstrongNumbers.svg?branch=master)](https://travis-ci.org/lotharschulz/armstrongNumbers)
 
 ## java
 #### run
