@@ -2,9 +2,6 @@ language: python
 python:
   - "3.4"
 
-cache:
-  apt: true
-
 script:
     - bash ./tests.sh
 
