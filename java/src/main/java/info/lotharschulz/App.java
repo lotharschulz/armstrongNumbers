@@ -11,9 +11,6 @@ public class App
         System.out.println(
             MessageFormat.format("armstrong numbers between 100 & 999 are: \"{0}\"",
                     array2String(getArmstrongNumbers(100, 999))));
-        System.out.println(
-                MessageFormat.format("armstrong numbers between 100 & 999 are: \"{0}\"",
-                        arrayList2String(getArmstrongNumbersAlt(100, 999))));
     }
 
     public static int[] getArmstrongNumbers(final int start, final int end){
