@@ -35,7 +35,7 @@ python test_armstrong.py
 ## clojure
 #### run
 ```
-tbd
+lein run
 ```
 #### test
 ```

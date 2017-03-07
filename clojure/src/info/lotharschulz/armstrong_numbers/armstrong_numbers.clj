@@ -60,3 +60,7 @@
                    :when (true? (armstrong-number-alt? x))]
                x))
      []))
+
+(defn -main
+  []
+  (println (str "armstrong numbers between 100 and 1000: " (generate-armstrong-numbers 100 1000)))  )
