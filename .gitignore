@@ -13,3 +13,4 @@ output/
 .lein-failures
 .lein-repl-history
 .nrepl-port
+*.pyc
