@@ -3,5 +3,5 @@ python:
   - "3.4"
 
 script:
-    - bash ./tests.sh
+    - bash ./test.sh
 
