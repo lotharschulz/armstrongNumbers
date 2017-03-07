@@ -3,5 +3,6 @@ python:
   - "3.4"
 
 script:
+    - jdk_switcher use oraclejdk8
     - bash ./test.sh
 
