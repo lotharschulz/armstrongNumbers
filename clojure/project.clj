@@ -2,6 +2,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]]
   :main ^:skip-aot info.lotharschulz.armstrong-numbers.armstrong-numbers
   :target-path "target/%s"
-  :profiles {:dev {:dependencies [[midje "1.7.0"]]} 
-             :uberjar {:aot :all}}
+  :profiles {:dev {:dependencies [[midje "1.7.0"]]}
+                   :plugins [[lein-midje "3.2.1"]]         
+                   :uberjar {:aot :all}}
   )

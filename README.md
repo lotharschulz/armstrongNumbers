@@ -22,6 +22,10 @@ sbt "run-main info.lotharschulz.App"
 ```
 sbt [clean] test
 ```
+##### triggered clean tests
+```
+~ ;clean ;test # triggered clean tests
+```
 
 ## python
 #### run
@@ -42,4 +46,9 @@ lein run
 #### test
 ```
 lein test
+```
+##### triggered test
+prerequsite: [lein-midje](https://github.com/marick/lein-midje) plugin installed
+```
+lein midje :autotest
 ```
