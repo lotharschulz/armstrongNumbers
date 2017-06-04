@@ -50,34 +50,61 @@
              (armstrong-number-alt? 1.0) => (throws AssertionError)
              (armstrong-number-alt? ["a", 1]) => (throws AssertionError)
              )
-       (fact "armstrong number check (?) for 153, 370, 371, 407"
-             (armstrong-number? 153) => truthy
-             (armstrong-number? 370) => truthy
-             (armstrong-number? 371) => truthy
-             (armstrong-number? 407) => truthy
-             (armstrong-number? 154) => falsey
-             (armstrong-number? 369) => falsey
-             (armstrong-number? 372) => falsey
-             (armstrong-number? 406) => falsey
-             (armstrong-number? 0) => falsey
-             (armstrong-number? -1) => falsey
-             (armstrong-number? nil) => (throws AssertionError)
-             (armstrong-number? "a") => (throws AssertionError)
-             (armstrong-number? 1.0) => (throws AssertionError)
-             (armstrong-number? ["a", 1]) => (throws AssertionError)
-             )
-       (fact "generate armstrong numbers from 100 to 1000"
-             (generate-armstrong-numbers 100 1000) => [153 370 371 407]
-             (generate-armstrong-numbers 1 1000) => [1 2 3 4 5 6 7 8 9 153 370 371 407]
-             (generate-armstrong-numbers 0 1000) => [1 2 3 4 5 6 7 8 9 153 370 371 407]
-             (generate-armstrong-numbers 1000 0) => []
-             (generate-armstrong-numbers 2 2) => []
-             (generate-armstrong-numbers -1 1000) => [1 2 3 4 5 6 7 8 9 153 370 371 407]
-             (generate-armstrong-numbers 1000 -1) => []
-             (generate-armstrong-numbers -2 -2) => []
-             (generate-armstrong-numbers nil nil) => (throws AssertionError)
-             (generate-armstrong-numbers "a" "b") => (throws AssertionError)
-             (generate-armstrong-numbers 1.0 2.0) => (throws AssertionError)
-             (generate-armstrong-numbers ["a", 1] ["b", 2]) => (throws AssertionError))
+       (tabular
+         (fact "armstrong number check (?) for 153, 370, 371, 407"
+               (armstrong-number? ?input) => ?expected)
+         ?input   ?expected
+         153      truthy
+         370      truthy
+         371      truthy
+         407      truthy
+         154      falsey
+         369      falsey
+         372      falsey
+         406      falsey)
+       (tabular
+         (fact "generate armstrong numbers from 100 to 1000"
+            (generate-armstrong-numbers ?start ?end) => ?expected)
+         ?start   ?end    ?expected
+         100      1000    [153 370 371 407]
+         1        1000    [1 2 3 4 5 6 7 8 9 153 370 371 407]
+         0        1000    [1 2 3 4 5 6 7 8 9 153 370 371 407]
+         1000     0       []
+         2        2       []
+         -1       1000    [1 2 3 4 5 6 7 8 9 153 370 371 407]
+         1000     -1      []
+         -2       -2      []
+         nil      nil     (throws AssertionError)
+         "a"      "b"     (throws AssertionError)
+         1.0      2.0     (throws AssertionError)
+         ["a",1]  ["b",2] (throws AssertionError)))
+;(fact "armstrong number check (?) for 153, 370, 371, 407"
+;      (armstrong-number? 153) => truthy
+;      (armstrong-number? 370) => truthy
+;      (armstrong-number? 371) => truthy
+;      (armstrong-number? 407) => truthy
+;      (armstrong-number? 154) => falsey
+;      (armstrong-number? 369) => falsey
+;      (armstrong-number? 372) => falsey
+;      (armstrong-number? 406) => falsey
+;      (armstrong-number? 0) => falsey
+;      (armstrong-number? -1) => falsey
+;      (armstrong-number? nil) => (throws AssertionError)
+;      (armstrong-number? "a") => (throws AssertionError)
+;      (armstrong-number? 1.0) => (throws AssertionError)
+;      (armstrong-number? ["a", 1]) => (throws AssertionError)
+;      )
 
-)
+;(fact "generate armstrong numbers from 100 to 1000"
+;      (generate-armstrong-numbers 100 1000) => [153 370 371 407]
+;      (generate-armstrong-numbers 1 1000) => [1 2 3 4 5 6 7 8 9 153 370 371 407]
+;      (generate-armstrong-numbers 0 1000) => [1 2 3 4 5 6 7 8 9 153 370 371 407]
+;      (generate-armstrong-numbers 1000 0) => []
+;      (generate-armstrong-numbers 2 2) => []
+;      (generate-armstrong-numbers -1 1000) => [1 2 3 4 5 6 7 8 9 153 370 371 407]
+;      (generate-armstrong-numbers 1000 -1) => []
+;      (generate-armstrong-numbers -2 -2) => []
+;      (generate-armstrong-numbers nil nil) => (throws AssertionError)
+;      (generate-armstrong-numbers "a" "b") => (throws AssertionError)
+;      (generate-armstrong-numbers 1.0 2.0) => (throws AssertionError)
+;      (generate-armstrong-numbers ["a", 1] ["b", 2]) => (throws AssertionError))
