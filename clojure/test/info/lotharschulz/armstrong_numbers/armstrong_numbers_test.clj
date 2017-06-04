@@ -3,26 +3,37 @@
             [info.lotharschulz.armstrong-numbers.armstrong-numbers :refer :all]))
 
 (facts "about armstrong numbers"
-       (fact "return number of digits if given number greater then -1"
-             (get-number-of-digits 100) => 3
-             (get-number-of-digits 10000) =not=> 4
-             (get-number-of-digits 10000) => 5
-             (get-number-of-digits 10000) =not=> 4
-             (get-number-of-digits 0) => 1
-             (get-number-of-digits 0) =not=> 4
-             (get-number-of-digits -1) => nil
-             (get-number-of-digits nil) => (throws AssertionError)
-             (get-number-of-digits "a") => (throws AssertionError)
-             (get-number-of-digits 1.0) => (throws AssertionError)
-             (get-number-of-digits ["a", 1]) => (throws AssertionError)
-             )
+       ;; ?arrow tabs seems buggy, 4 tabulars to test function get-number-of-digits
        (tabular
-         (fact "return number of digits if given number greater then -1"
+         (fact "get number of digits failure case tests with not equals tab"
                (get-number-of-digits ?input) ?arrow ?expected)
-         ?input   ?arrow  ?expected
-         100      =>      3
-         10000    =>      5
-         )
+         ?input     ?arrow    ?expected
+         ;0          =not=>    4
+         100        =not=>    4
+         10000      =not=>    4)
+       (tabular
+         (fact "get number of digits failure case tests"
+               (get-number-of-digits ?input) =not=> ?expected)
+         ?input     ?expected
+         0          4)
+       (tabular
+         (fact "get number of digits success case tests with equals tab"
+               (get-number-of-digits ?input) ?arrow ?expected)
+         ?input     ?arrow    ?expected
+         ;nil        =>        (throws AssertionError)
+         10000      =>        5
+         100        =>        3)
+       (tabular
+         (fact "get number of digits success case tests"
+               (get-number-of-digits ?input) => ?expected)
+         ?input     ?expected
+         0          1
+         -1         nil
+         nil        (throws AssertionError)
+         "a"        (throws AssertionError)
+         1.0        (throws AssertionError)
+         ["a", 1]   (throws AssertionError))
+       ;;
        (tabular
          (fact "list of digits for given number"
                (get-digits ?input) => ?expected)
@@ -95,6 +106,20 @@
          "a"      "b"     (throws AssertionError)
          1.0      2.0     (throws AssertionError)
          ["a",1]  ["b",2] (throws AssertionError)))
+;       (fact "return number of digits if given number greater then -1"
+;             ;(get-number-of-digits 100) => 3
+;             ;(get-number-of-digits 100) =not=> 4
+;             ;(get-number-of-digits 10000) => 5
+;             ;(get-number-of-digits 10000) =not=> 4
+;             ;(get-number-of-digits 0) => 1
+;             ;(get-number-of-digits 0) =not=> 4
+;             ;(get-number-of-digits -1) => nil
+;             (get-number-of-digits nil) => (throws AssertionError)
+;             (get-number-of-digits "a") => (throws AssertionError)
+;             (get-number-of-digits 1.0) => (throws AssertionError)
+;             (get-number-of-digits ["a", 1]) => (throws AssertionError)
+;             )
+
 ;(fact "list of digits for given number"
 ;      (get-digits 100) => [0 0 1]
 ;      (get-digits 0) => nil
