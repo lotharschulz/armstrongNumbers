@@ -56,3 +56,13 @@ prerequsite: [lein-midje](https://github.com/marick/lein-midje) plugin installed
 ```
 lein midje :autotest
 ```
+
+## typescript
+#### run
+```
+tsc armstrong.ts && node armstrong.js
+```
+#### test
+```
+yarn test
+```

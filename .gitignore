@@ -14,3 +14,4 @@ output/
 .lein-repl-history
 .nrepl-port
 *.pyc
+node_modules/
