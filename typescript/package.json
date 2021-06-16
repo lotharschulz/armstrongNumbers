@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "hosted-git-info": ">=2.8.9",
+    "lodash": ">=4.17.21",
     "ws": ">=7.4.6"
   }
 }
