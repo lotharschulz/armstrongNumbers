@@ -29,5 +29,9 @@
     "lint": "yarn lint:types && yarn lint:ci",
     "lint:types": "yarn tsc --noEmit -p .",
     "lint:ci": "eslint . --ext .tsx,.ts"
+  },
+  "dependencies": {
+    "hosted-git-info": ">=2.8.9",
+    "ws": ">=7.4.6"
   }
 }
