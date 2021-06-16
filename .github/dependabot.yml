@@ -31,7 +31,7 @@ updates:
       separator: "-"
     versioning-strategy: increase-if-necessary
   - package-ecosystem: 'pip'
-    directory: "/java"
+    directory: "/python/armstrong/"
     schedule:
       interval: "weekly"
       day: "monday"
