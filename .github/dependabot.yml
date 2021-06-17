@@ -14,7 +14,6 @@ updates:
     open-pull-requests-limit: 3
     pull-request-branch-name:
       separator: "-"
-    versioning-strategy: increase-if-necessary
   - package-ecosystem: 'maven'
     directory: "/java"
     schedule:
@@ -29,7 +28,6 @@ updates:
     open-pull-requests-limit: 3
     pull-request-branch-name:
       separator: "-"
-    versioning-strategy: increase-if-necessary
   - package-ecosystem: 'pip'
     directory: "/python/armstrong/"
     schedule:
@@ -44,7 +42,6 @@ updates:
     open-pull-requests-limit: 3
     pull-request-branch-name:
       separator: "-"
-    versioning-strategy: increase-if-necessary
   # - package-ecosystem: 'gradle'
   #   directory: "/TOCOME"
   #   schedule:
@@ -59,4 +56,3 @@ updates:
   #   open-pull-requests-limit: 3
   #   pull-request-branch-name:
   #     separator: "-"
-  #   versioning-strategy: increase-if-necessary
