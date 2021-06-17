@@ -1,0 +1,62 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: "/typescript"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    target-branch: "npm"
+    labels:
+      - "npm"
+      - "dependencies"
+    open-pull-requests-limit: 3
+    pull-request-branch-name:
+      separator: "-"
+    versioning-strategy: increase-if-necessary
+  - package-ecosystem: 'maven'
+    directory: "/java"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    target-branch: "mvn"
+    labels:
+      - "maven"
+      - "dependencies"
+    open-pull-requests-limit: 3
+    pull-request-branch-name:
+      separator: "-"
+    versioning-strategy: increase-if-necessary
+  - package-ecosystem: 'pip'
+    directory: "/python/armstrong/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    target-branch: "pip"
+    labels:
+      - "pip"
+      - "dependencies"
+    open-pull-requests-limit: 3
+    pull-request-branch-name:
+      separator: "-"
+    versioning-strategy: increase-if-necessary
+  # - package-ecosystem: 'gradle'
+  #   directory: "/TOCOME"
+  #   schedule:
+  #     interval: "weekly"
+  #     day: "monday"
+  #     time: "06:00"
+  #     timezone: "Europe/Berlin"
+  #   target-branch: "gradle"
+  #   labels:
+  #     - "gradle"
+  #     - "dependencies"
+  #   open-pull-requests-limit: 3
+  #   pull-request-branch-name:
+  #     separator: "-"
+  #   versioning-strategy: increase-if-necessary
