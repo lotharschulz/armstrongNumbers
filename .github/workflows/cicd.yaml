@@ -1,0 +1,13 @@
+on: push
+
+jobs:
+  test-clojure:
+    #TODO
+  test-java:
+    #TODO
+  test-python:
+    #TODO
+  test-scala:
+    #TODO
+  test-typescript:
+    #TODO
