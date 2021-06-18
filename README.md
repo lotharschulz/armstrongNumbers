@@ -1,5 +1,5 @@
 # [Armstrong Numbers](https://en.wikipedia.org/wiki/Narcissistic_number) implementations
-using different programming languages.
+with different programming languages.
 
 ![tests ](https://github.com/github/docs/actions/workflows/tests.yml/badge.svg)
 
