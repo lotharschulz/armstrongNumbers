@@ -68,8 +68,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: olafurpg/setup-scala@v11
-    - name: Compile
-    - name: Build and Test
+    - name: sest
       run: |
         cd scala
         sbt compile
