@@ -3,18 +3,34 @@ on: push
 jobs:
   java:
     runs-on: ubuntu-latest
+    # steps:
+    #   # maven java
+    #   - uses: actions/checkout@v2
+    #   - name: install jdk 11
+    #     uses: actions/setup-java@v2
+    #     with:
+    #       java-version: '11'
+    #       distribution: 'adopt'
+    #   - name: maven version
+    #     run: mvn -v
+    #   - name: maven test
+    #     run: |
+    #       cd java 
+    #       mvn test
+
+    # runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        java: [ '8', '11', '14', '15' ]
+    name: java version ${{ matrix.Java }} 
     steps:
-      # maven java
       - uses: actions/checkout@v2
-      - name: install jdk 11
+      - name: java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: maven version
-        run: mvn -v
-      - name: maven test
-        run: |
+          java-version: ${{ matrix.java }}
+          distribution: '<distribution>'
+      - run: |
           cd java 
           mvn test
 
@@ -84,8 +100,8 @@ jobs:
   typescript:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        # fail-fast: false
         node-version: [12.x, 14.x] # 10.x, 
     steps:
     - uses: actions/checkout@v2
@@ -97,39 +113,3 @@ jobs:
         cd typescript
         yarn install
         yarn test
-  # typescript:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       fail-fast: false
-  #       node-version: [12.x, 14.x, 15.x]
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Node.js ${{ matrix.node-version }}
-  #     - run: |
-  #         npm install
-
-  # typescript: # make sure build/ci work properly
-  #   runs-on: ubuntu-latest
-    # steps:
-    #   - uses: actions/checkout@v2
-    #   - run: |
-    #       cd typescript
-    #       yarn install
-    #       yarn test
-    #       yarn ci
-    # strategy:
-    #   matrix:
-    #     fail-fast: false
-    #     node-version: [12.x, 14.x, 15.x]
-    # steps:
-    # - uses: actions/checkout@v2
-    # - name: Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v2
-    #   with:
-    #     node-version: ${{ matrix.node-version }}
-    # - run: |
-    #     cd typescript
-    #     yarn install
-    #     yarn test
-    #     yarn ci
