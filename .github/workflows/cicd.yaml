@@ -86,12 +86,28 @@ jobs:
     strategy:
       matrix:
         fail-fast: false
-        node-version: [12.x, 14.x, 15.x]
+        node-version: [12.x, 14.x] # 10.x, 
     steps:
-      - uses: actions/checkout@v2
-      - name: Node.js ${{ matrix.node-version }}
-      - run: |
-          npm install
+    - uses: actions/checkout@v2
+    - name: node v ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: |
+        cd typescript
+        npm ci
+        npm install
+  # typescript:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       fail-fast: false
+  #       node-version: [12.x, 14.x, 15.x]
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Node.js ${{ matrix.node-version }}
+  #     - run: |
+  #         npm install
 
   # typescript: # make sure build/ci work properly
   #   runs-on: ubuntu-latest
