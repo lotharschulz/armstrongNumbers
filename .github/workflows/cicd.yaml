@@ -95,8 +95,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         cd typescript
+        pwd
         npm ci
-        npm install
   # typescript:
   #   runs-on: ubuntu-latest
   #   strategy:
