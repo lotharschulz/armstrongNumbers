@@ -19,7 +19,6 @@ jobs:
           mvn --batch-mode --update-snapshots verify 
           mvn test
 
-jobs:
   clojure:
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +41,6 @@ jobs:
           lein test
           cd ..
 
-jobs:
   scala:
     runs-on: ubuntu-latest
     steps:
