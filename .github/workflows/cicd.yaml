@@ -34,6 +34,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: maven version
+        run: mvn -v
       - name: maven test
         run: |
           cd java 
@@ -49,6 +51,11 @@ jobs:
           #boot: 2.8.3     # or use 'latest' to always provision latest version of boot
       - name: leiningen version
         run: lein -v
+      - name: leiningen test
+        run: |
+          cd clojure
+          lein test
+          cd ..
 
       # # sbt scala
       # - name: sbt test
