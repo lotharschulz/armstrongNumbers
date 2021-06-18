@@ -55,8 +55,6 @@ jobs:
         uses: olafurpg/setup-scala@v10
         with:
           java-version: "adopt@1.11"
-      - name: sbt version
-        run: sbt -v
       - name: sbt test
         run: |
           cd scala
