@@ -1,5 +1,5 @@
 (ns info.lotharschulz.armstrong-numbers.armstrong-numbers
-  (:import [java.Math]))
+  (:import [java.math BigDecimal]))
 
 
 (defn get-number-of-digits
