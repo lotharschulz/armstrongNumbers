@@ -83,7 +83,12 @@ jobs:
 
   typescript:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fail-fast: false
+        node-version: [12.x, 14.x, 15.x]
     steps:
+      - name: Node.js ${{ matrix.node-version }}
       - uses: actions/checkout@v2
       - run: |
           npm install
