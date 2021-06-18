@@ -81,8 +81,15 @@ jobs:
           cd python/test
           python test_armstrong.py
 
-  typescript: # make sure build/ci work properly
+  typescript:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+
+  # typescript: # make sure build/ci work properly
+  #   runs-on: ubuntu-latest
     # steps:
     #   - uses: actions/checkout@v2
     #   - run: |
@@ -90,18 +97,18 @@ jobs:
     #       yarn install
     #       yarn test
     #       yarn ci
-    strategy:
-      matrix:
-        fail-fast: false
-        node-version: [12.x, 14.x, 15.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: |
-        cd typescript
-        yarn install
-        yarn test
-        yarn ci
+    # strategy:
+    #   matrix:
+    #     fail-fast: false
+    #     node-version: [12.x, 14.x, 15.x]
+    # steps:
+    # - uses: actions/checkout@v2
+    # - name: Node.js ${{ matrix.node-version }}
+    #   uses: actions/setup-node@v2
+    #   with:
+    #     node-version: ${{ matrix.node-version }}
+    # - run: |
+    #     cd typescript
+    #     yarn install
+    #     yarn test
+    #     yarn ci
