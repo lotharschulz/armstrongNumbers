@@ -3,6 +3,7 @@ import math
 
 class ArmstrongNumbers:
 
+
     def __init__(self):
         self.armstrongNumbers = []
 
@@ -26,7 +27,8 @@ class ArmstrongNumbers:
         sum = 0
         for nmbr in self.get_digits(number):
             sum += math.pow(nmbr, self.get_number_of_digits(number))
-        if number == sum: return True
+        if number == sum: 
+            return True
         return False
 
     def get_digits(self, number):
@@ -35,14 +37,15 @@ class ArmstrongNumbers:
         if number == 0:
             return digits
         while number > 0:
-            digits.append(number%10)
+            digits.append(number % 10)
             number = int(number / 10)
         digits.reverse()
         return digits
 
     def get_number_of_digits(self, number):
         self.check_number(number)
-        if number == 0: return 1
+        if number == 0: 
+            return 1
         return int(math.log(number, 10)) + 1
 
     def check_number(self, number):
@@ -50,6 +53,7 @@ class ArmstrongNumbers:
             raise ValueError('limit has to be a number')
         elif number < 0:
             raise ValueError('number must be greater than -1')
+
 
 if __name__ == '__main__':
     a = ArmstrongNumbers()
