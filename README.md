@@ -1,7 +1,7 @@
 # [Armstrong Numbers](https://en.wikipedia.org/wiki/Narcissistic_number) implementations
 with different programming languages.
 
-![tests ](https://github.com/github/docs/actions/workflows/tests.yml/badge.svg)
+![tests ](https://github.com/lotharschulz/armstrongNumbers/actions/workflows/tests.yml/badge.svg)
 
 ## Why?
 This repo are coding finger exercises with different languages using [narcissistic/armstrong numbers](https://en.wikipedia.org/wiki/Narcissistic_number). It is mainly about getting familiar with the different languages.
