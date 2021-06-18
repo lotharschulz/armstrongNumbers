@@ -67,11 +67,11 @@ jobs:
       JVM_OPTS:  -Xms2048M -Xmx2048M -Xss6M -XX:ReservedCodeCacheSize=256M -Dfile.encoding=UTF-8
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
     - name: Setup Scala
-      uses: olafurpg/setup-scala@v10
+      uses: olafurpg/setup-scala
       with:
-        java-version: "adopt@1.8"
+        java-version: "adopt@1.11"
     - name: Build and Test
       run: sbt -v +test
 
