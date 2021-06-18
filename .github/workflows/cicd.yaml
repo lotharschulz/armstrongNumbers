@@ -69,7 +69,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Setup Scala
-      uses: olafurpg/setup-scala
+      uses: olafurpg/setup-scala@lastet
       with:
         java-version: "adopt@1.11"
     - name: Build and Test
