@@ -32,12 +32,24 @@ jobs:
           lein test
           cd ..
       # sbt scala
-      - name: sbt test
-        id: sbt
-        uses: ./scala
+      - name: install scala
+        uses: olafurpg/setup-scala@v10
         with:
-          commands: test
-          sbt_project_directory: ./scala/project
+          java-version: "adopt@1.11"
+      - name: sbt version
+        run: sbt -v
+      - name: sbt test
+        run: |
+          cd scala
+          sbt -v +test
+          cd ..
+
+      # - name: sbt test
+      #   id: sbt
+      #   uses: ./scala
+      #   with:
+      #     commands: test
+      #     sbt_project_directory: ./scala/project
 
   # test-python:
   #   #TODO
