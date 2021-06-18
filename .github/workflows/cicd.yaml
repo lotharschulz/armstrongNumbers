@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        fail-fast: false
+        # fail-fast: false
         node-version: [12.x, 14.x] # 10.x, 
     steps:
     - uses: actions/checkout@v2
