@@ -42,25 +42,41 @@ jobs:
           cd ..
 
   scala:
+    # runs-on: ubuntu-latest
+    # steps:
+    #   # sbt scala
+    #   - uses: actions/checkout@v2
+    #   - name: install jdk 11
+    #     uses: actions/setup-java@v2
+    #     with:
+    #       java-version: '11'
+    #       distribution: 'adopt'
+    #   - name: install scala
+    #     uses: olafurpg/setup-scala@v10
+    #     with:
+    #       java-version: "adopt@1.11"
+    #   - name: sbt test
+    #     run: |
+    #       cd scala
+    #       sbt -v +test
+    #       cd ..
     runs-on: ubuntu-latest
+    env:
+      # define Java options for both official sbt and sbt-extras
+      JAVA_OPTS: -Xms2048M -Xmx2048M -Xss6M -XX:ReservedCodeCacheSize=256M -Dfile.encoding=UTF-8
+      JVM_OPTS:  -Xms2048M -Xmx2048M -Xss6M -XX:ReservedCodeCacheSize=256M -Dfile.encoding=UTF-8
     steps:
-      # sbt scala
-      - uses: actions/checkout@v2
-      - name: install jdk 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: install scala
-        uses: olafurpg/setup-scala@v10
-        with:
-          java-version: "adopt@1.11"
-      - name: sbt test
-        run: |
-          cd scala
-          sbt -v +test
-          cd ..
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup Scala
+      uses: olafurpg/setup-scala@v10
+      with:
+        java-version: "adopt@1.8"
+    - name: Build and Test
+      run: sbt -v +test
 
+
+          
       # - name: sbt test
       #   id: sbt
       #   uses: ./scala
