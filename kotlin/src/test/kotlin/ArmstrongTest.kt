@@ -10,31 +10,52 @@ class ArmstrongTest {
     }
 
     @Test
-    fun `getDigits`(){
+    fun `test getDigitsRecursive`(){
         val digits1 = listOf(5,8,3,7)
         val result1 = mutableListOf<Int>()
-        Armstrong.getDigits(5837, result1)
+        Armstrong.getDigitsRecursive(5837, result1)
         assertEquals(digits1, result1.toList())
         val digits2 = listOf<Int>()
         val result2 = mutableListOf<Int>()
-        Armstrong.getDigits(0, result2)
+        Armstrong.getDigitsRecursive(0, result2)
         assertEquals(digits2, result2.toList())
         val result3 = mutableListOf<Int>()
-        Armstrong.getDigits(-1, result3)
+        Armstrong.getDigitsRecursive(-1, result3)
         assertEquals(digits2, result3.toList())
     }
 
     @Test
-    fun `getDigits2`(){
-        assertEquals(listOf(4,3,2,1), Armstrong.getDigits2(4321))
-        assertEquals(listOf<Int>(0), Armstrong.getDigits2(0))
-        assertEquals(listOf<Int>(), Armstrong.getDigits2(-1))
+    fun `test getDigitsIterative`(){
+        assertEquals(listOf(4,3,2,1), Armstrong.getDigitsIterative(4321))
+        assertEquals(listOf<Int>(0), Armstrong.getDigitsIterative(0))
+        assertEquals(listOf<Int>(), Armstrong.getDigitsIterative(-1))
     }
 
     @Test
-    fun `getDigits3`(){
-        assertEquals(listOf(1,2,3,4), Armstrong.getDigits3(1234))
-        assertEquals(listOf<Int>(0), Armstrong.getDigits3(0))
-        assertEquals(listOf<Int>(), Armstrong.getDigits3(-1))
+    fun `test getDigitsViaString`(){
+        assertEquals(listOf(1,2,3,4), Armstrong.getDigitsViaString(1234))
+        assertEquals(listOf<Int>(0), Armstrong.getDigitsViaString(0))
+        assertEquals(listOf<Int>(), Armstrong.getDigitsViaString(-1))
     }
+
+    @Test
+    fun `test getNumberOfDigitsLog`(){
+        val one = 1
+        assertEquals(one, Armstrong.getNumberOfDigitsLog(0));
+        assertEquals(one, Armstrong.getNumberOfDigitsLog(1));
+        assertEquals(one, Armstrong.getNumberOfDigitsLog(-1));
+        assertEquals(4, Armstrong.getNumberOfDigitsLog(1243));
+        assertEquals(6, Armstrong.getNumberOfDigitsLog(100000));
+    }
+
+    @Test
+    fun `test getNumberofDigitsStr`(){
+        val one = 1
+        assertEquals(one, Armstrong.getNumberofDigitsStr(0));
+        assertEquals(one, Armstrong.getNumberofDigitsStr(1));
+        assertEquals(one, Armstrong.getNumberofDigitsStr(-1));
+        assertEquals(4, Armstrong.getNumberofDigitsStr(1243));
+        assertEquals(6, Armstrong.getNumberofDigitsStr(100000));
+    }
+
 }

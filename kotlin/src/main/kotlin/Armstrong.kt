@@ -1,11 +1,13 @@
+import kotlin.math.absoluteValue
+
 object Armstrong {
     fun isArmstrongNumber(input: Int): Boolean = true
 
-    fun getDigits(input: Int, acc: MutableList<Int>): List<Int> =
+    fun getDigitsRecursive(input: Int, acc: MutableList<Int>): List<Int> =
         when {
             input > 0 -> {
                 acc.add(input%10)
-                getDigits(input / 10, acc)
+                getDigitsRecursive(input / 10, acc)
             }
             else -> {
                 acc.reverse()
@@ -13,7 +15,7 @@ object Armstrong {
             }
         }
 
-    fun getDigits2(input: Int): List<Int> {
+    fun getDigitsIterative(input: Int): List<Int> {
         val result = mutableListOf<Int>()
         var nmbr = input
         if(nmbr>0){
@@ -28,7 +30,7 @@ object Armstrong {
         return result
     }
 
-    fun getDigits3(input: Int): List<Int> {
+    fun getDigitsViaString(input: Int): List<Int> {
         val digits = ArrayList<Int>()
         if (input >= 0) {
             val inputString: String = input.toString()
@@ -39,4 +41,11 @@ object Armstrong {
         }
         return digits
     }
+
+    fun getNumberOfDigitsLog(input: Int): Int =
+        if (input == 0) 1 else Math.log10(input.toDouble()).toInt() + 1
+
+    fun getNumberofDigitsStr(input: Int): Int =
+        input.toDouble().absoluteValue.toInt().toString().length
+
 }
