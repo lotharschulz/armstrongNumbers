@@ -45,7 +45,7 @@ object Armstrong {
     fun getNumberOfDigitsLog(input: Int): Int =
         if (input == 0) 1 else Math.log10(input.toDouble()).toInt() + 1
 
-    fun getNumberofDigitsStr(input: Int): Int =
+    fun getNumberOfDigitsStr(input: Int): Int =
         input.toDouble().absoluteValue.toInt().toString().length
 
 }

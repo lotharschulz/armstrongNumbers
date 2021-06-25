@@ -51,11 +51,11 @@ class ArmstrongTest {
     @Test
     fun `test getNumberofDigitsStr`(){
         val one = 1
-        assertEquals(one, Armstrong.getNumberofDigitsStr(0));
-        assertEquals(one, Armstrong.getNumberofDigitsStr(1));
-        assertEquals(one, Armstrong.getNumberofDigitsStr(-1));
-        assertEquals(4, Armstrong.getNumberofDigitsStr(1243));
-        assertEquals(6, Armstrong.getNumberofDigitsStr(100000));
+        assertEquals(one, Armstrong.getNumberOfDigitsStr(0));
+        assertEquals(one, Armstrong.getNumberOfDigitsStr(1));
+        assertEquals(one, Armstrong.getNumberOfDigitsStr(-1));
+        assertEquals(4, Armstrong.getNumberOfDigitsStr(1243));
+        assertEquals(6, Armstrong.getNumberOfDigitsStr(100000));
     }
 
 }
