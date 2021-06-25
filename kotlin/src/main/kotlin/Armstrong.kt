@@ -18,7 +18,7 @@ object Armstrong {
         var nmbr = input
         if(nmbr>0){
             while (nmbr > 0) {
-                result.add(input % 10);
+                result.add(nmbr % 10);
                 nmbr = nmbr / 10;
             }
             result.reverse()
