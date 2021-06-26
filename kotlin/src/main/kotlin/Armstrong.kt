@@ -1,6 +1,14 @@
+import java.util.stream.IntStream
 import kotlin.math.absoluteValue
 
+
 object Armstrong {
+    fun getArmstrongNumbers(start: Int, end: Int): List<Int> {
+        require(start >= 1) { "start has to be at least 0" }
+        require(end >= start) { "end has to be greater than start" }
+        return start.rangeTo(end).filter { isArmstrongNumber(it) }.toList()
+    }
+
     fun isArmstrongNumber(input: Int): Boolean =
         when{
             input > -1 -> input == getDigitsRecursive(input).sumOf { digit ->

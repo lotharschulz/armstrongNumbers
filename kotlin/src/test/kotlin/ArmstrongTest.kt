@@ -7,19 +7,33 @@ import kotlin.test.assertTrue
 class ArmstrongTest {
 
     @Test
-    fun `test isArmstrongNumber`() {
-        // 3 digit armstrong numbers
+    fun testGetArmstrongNumbers() {
+        val threeDigitArmstrongNumbers = listOf<Int>(153, 370, 371, 407)
+        val result = Armstrong.getArmstrongNumbers(100, 999)
+        assertEquals(threeDigitArmstrongNumbers, result)
+        val notThreeDigitArmstrongNumbers = intArrayOf(154, 369, 372, 408)
+        result.forEach{ assertFalse(notThreeDigitArmstrongNumbers.contains(it)) }
+    }
+
+    @Test
+    fun `test 3 digit isArmstrongNumber`() {
         assertTrue(Armstrong.isArmstrongNumber(153))
         assertTrue(Armstrong.isArmstrongNumber(370))
         assertTrue(Armstrong.isArmstrongNumber(371))
         assertTrue(Armstrong.isArmstrongNumber(407))
-        // 3 digit NONE armstrong numbers
+    }
+
+    @Test
+    fun `test 3 NONE digit isArmstrongNumber`() {
         assertTrue(Armstrong.isArmstrongNumber(0))
         assertFalse(Armstrong.isArmstrongNumber(154))
         assertFalse(Armstrong.isArmstrongNumber(100))
         assertFalse(Armstrong.isArmstrongNumber(-100))
         assertFalse(Armstrong.isArmstrongNumber(-1))
-        // all one digit numbers are armstrong numbers
+    }
+
+    @Test
+    fun `test one digit isArmstrongNumbers`() {
         assertTrue(Armstrong.isArmstrongNumber(1))
         assertTrue(Armstrong.isArmstrongNumber(2))
         assertTrue(Armstrong.isArmstrongNumber(3))
