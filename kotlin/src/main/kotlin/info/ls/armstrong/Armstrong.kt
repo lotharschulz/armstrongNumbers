@@ -1,6 +1,10 @@
-import java.util.stream.IntStream
+package info.ls.armstrong
+
 import kotlin.math.absoluteValue
 
+fun main() {
+    println("armstrong numbers between 100 & 999 are: ${Armstrong.getArmstrongNumbers(100,999)}")
+}
 
 object Armstrong {
     fun getArmstrongNumbers(start: Int, end: Int): List<Int> {
@@ -10,7 +14,7 @@ object Armstrong {
     }
 
     fun isArmstrongNumber(input: Int): Boolean =
-        when{
+        when {
             input > -1 -> input == getDigitsRecursive(input).sumOf { digit ->
                 Math.pow(digit.toDouble(), getNumberOfDigitsLog(input).toDouble())
             }.toInt()
@@ -27,7 +31,7 @@ object Armstrong {
     fun getDigitsRecursiveAcc(input: Int, acc: MutableList<Int>): List<Int> =
         when {
             input > 0 -> {
-                acc.add(input%10)
+                acc.add(input % 10)
                 getDigitsRecursiveAcc(input / 10, acc)
             }
             else -> {
@@ -39,14 +43,14 @@ object Armstrong {
     fun getDigitsIterative(input: Int): List<Int> {
         val result = mutableListOf<Int>()
         var nmbr = input
-        if(nmbr>0){
+        if (nmbr> 0) {
             while (nmbr > 0) {
-                result.add(nmbr % 10);
-                nmbr = nmbr / 10;
+                result.add(nmbr % 10)
+                nmbr = nmbr / 10
             }
             result.reverse()
         } else if (input == 0) {
-            result.add(0);
+            result.add(0)
         }
         return result
     }
@@ -68,5 +72,4 @@ object Armstrong {
 
     fun getNumberOfDigitsStr(input: Int): Int =
         input.toDouble().absoluteValue.toInt().toString().length
-
 }

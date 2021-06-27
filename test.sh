@@ -22,3 +22,7 @@ cd typescript
 yarn install
 yarn test
 cd ..
+cd kotlin
+./gradlew ktlintCheck
+./gradlew test
+./gradlew run

@@ -1,8 +1,9 @@
+package info.ls.armstrong
+
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-
 
 class ArmstrongTest {
 
@@ -12,7 +13,7 @@ class ArmstrongTest {
         val result = Armstrong.getArmstrongNumbers(100, 999)
         assertEquals(threeDigitArmstrongNumbers, result)
         val notThreeDigitArmstrongNumbers = intArrayOf(154, 369, 372, 408)
-        result.forEach{ assertFalse(notThreeDigitArmstrongNumbers.contains(it)) }
+        result.forEach { assertFalse(notThreeDigitArmstrongNumbers.contains(it)) }
     }
 
     @Test
@@ -46,9 +47,9 @@ class ArmstrongTest {
     }
 
     @Test
-    fun `test getDigitsRecursive`(){
-        assertEquals(listOf(5,8,3,7), Armstrong.getDigitsRecursive(5837))
-        assertEquals(listOf(4,3,2,1), Armstrong.getDigitsRecursive(4321))
+    fun `test getDigitsRecursive`() {
+        assertEquals(listOf(5, 8, 3, 7), Armstrong.getDigitsRecursive(5837))
+        assertEquals(listOf(4, 3, 2, 1), Armstrong.getDigitsRecursive(4321))
         assertEquals(listOf<Int>(), Armstrong.getDigitsRecursive(-1))
         // getDigitsRecursive(0) return listOf(0)
         // unlike
@@ -57,8 +58,8 @@ class ArmstrongTest {
     }
 
     @Test
-    fun `test getDigitsRecursiveAcc`(){
-        val digits1 = listOf(5,8,3,7)
+    fun `test getDigitsRecursiveAcc`() {
+        val digits1 = listOf(5, 8, 3, 7)
         val result1 = mutableListOf<Int>()
         Armstrong.getDigitsRecursiveAcc(5837, result1)
         assertEquals(digits1, result1.toList())
@@ -72,37 +73,36 @@ class ArmstrongTest {
     }
 
     @Test
-    fun `test getDigitsIterative`(){
-        assertEquals(listOf(4,3,2,1), Armstrong.getDigitsIterative(4321))
+    fun `test getDigitsIterative`() {
+        assertEquals(listOf(4, 3, 2, 1), Armstrong.getDigitsIterative(4321))
         assertEquals(listOf<Int>(0), Armstrong.getDigitsIterative(0))
         assertEquals(listOf<Int>(), Armstrong.getDigitsIterative(-1))
     }
 
     @Test
-    fun `test getDigitsViaString`(){
-        assertEquals(listOf(1,2,3,4), Armstrong.getDigitsViaString(1234))
+    fun `test getDigitsViaString`() {
+        assertEquals(listOf(1, 2, 3, 4), Armstrong.getDigitsViaString(1234))
         assertEquals(listOf<Int>(0), Armstrong.getDigitsViaString(0))
         assertEquals(listOf<Int>(), Armstrong.getDigitsViaString(-1))
     }
 
     @Test
-    fun `test getNumberOfDigitsLog`(){
+    fun `test getNumberOfDigitsLog`() {
         val one = 1
-        assertEquals(one, Armstrong.getNumberOfDigitsLog(0));
-        assertEquals(one, Armstrong.getNumberOfDigitsLog(1));
-        assertEquals(one, Armstrong.getNumberOfDigitsLog(-1));
-        assertEquals(4, Armstrong.getNumberOfDigitsLog(1243));
-        assertEquals(6, Armstrong.getNumberOfDigitsLog(100000));
+        assertEquals(one, Armstrong.getNumberOfDigitsLog(0))
+        assertEquals(one, Armstrong.getNumberOfDigitsLog(1))
+        assertEquals(one, Armstrong.getNumberOfDigitsLog(-1))
+        assertEquals(4, Armstrong.getNumberOfDigitsLog(1243))
+        assertEquals(6, Armstrong.getNumberOfDigitsLog(100000))
     }
 
     @Test
-    fun `test getNumberofDigitsStr`(){
+    fun `test getNumberofDigitsStr`() {
         val one = 1
-        assertEquals(one, Armstrong.getNumberOfDigitsStr(0));
-        assertEquals(one, Armstrong.getNumberOfDigitsStr(1));
-        assertEquals(one, Armstrong.getNumberOfDigitsStr(-1));
-        assertEquals(4, Armstrong.getNumberOfDigitsStr(1243));
-        assertEquals(6, Armstrong.getNumberOfDigitsStr(100000));
+        assertEquals(one, Armstrong.getNumberOfDigitsStr(0))
+        assertEquals(one, Armstrong.getNumberOfDigitsStr(1))
+        assertEquals(one, Armstrong.getNumberOfDigitsStr(-1))
+        assertEquals(4, Armstrong.getNumberOfDigitsStr(1243))
+        assertEquals(6, Armstrong.getNumberOfDigitsStr(100000))
     }
-
 }
