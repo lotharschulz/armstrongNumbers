@@ -8,3 +8,4 @@ tmp/*
 
 babel.config.js
 jest.config.js
+armstrong.js

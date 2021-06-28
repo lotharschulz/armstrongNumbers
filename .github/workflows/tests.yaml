@@ -96,6 +96,7 @@ jobs:
     - run: |
         cd typescript
         yarn install
+        yarn lint:ci
         yarn test
 
   kotlin:

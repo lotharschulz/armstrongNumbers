@@ -32,11 +32,11 @@ function getDigits(input: number): number[] {
     return digits;
 }
 
-let oneNumber = 370;
+const oneNumber = 370;
 const result = isArmstrongNumber(oneNumber);
 result ? console.log(oneNumber, "is an armstrong number.") : console.log(oneNumber, "is NOT an armstrong number.");
 
-let start = 100;
-let end = 999;
+const start = 100;
+const end = 999;
 const armstrongnumbers = generateArmstrongNumbers(start, end);
 console.log("3 digit armstrong numbers are", armstrongnumbers);

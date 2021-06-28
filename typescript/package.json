@@ -1,10 +1,11 @@
 {
-  "name": "@exercism/typescript",
+  "name": "typescript-armstrongnumbers",
   "description": "Exercism exercises in Typescript.",
   "private": true,
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/exercism/typescript"
+    "url": "https://github.com/lotharschulz/armstrongNumbers/tree/main/typescript"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
