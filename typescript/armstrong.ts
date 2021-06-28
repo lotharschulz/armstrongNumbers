@@ -39,4 +39,4 @@ result ? console.log(oneNumber, "is an armstrong number.") : console.log(oneNumb
 const start = 100;
 const end = 999;
 const armstrongnumbers = generateArmstrongNumbers(start, end);
-console.log("3 digit armstrong numbers are", armstrongnumbers);
+console.log("3 digit armstrong numbers are: ", armstrongnumbers);
