@@ -11,7 +11,7 @@ updates:
     labels:
       - "npm"
       - "dependencies"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 7
     pull-request-branch-name:
       separator: "-"
   - package-ecosystem: 'maven'
@@ -25,7 +25,7 @@ updates:
     labels:
       - "maven"
       - "dependencies"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 7
     pull-request-branch-name:
       separator: "-"
   - package-ecosystem: 'pip'
@@ -39,20 +39,21 @@ updates:
     labels:
       - "pip"
       - "dependencies"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 7
     pull-request-branch-name:
       separator: "-"
-  # - package-ecosystem: 'gradle'
-  #   directory: "/TOCOME"
-  #   schedule:
-  #     interval: "weekly"
-  #     day: "monday"
-  #     time: "06:00"
-  #     timezone: "Europe/Berlin"
-  #   target-branch: "gradle"
-  #   labels:
-  #     - "gradle"
-  #     - "dependencies"
-  #   open-pull-requests-limit: 3
-  #   pull-request-branch-name:
-  #     separator: "-"
+
+  - package-ecosystem: 'gradle'
+    directory: "/kotlin"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    target-branch: "gradle"
+    labels:
+      - "gradle"
+      - "dependencies"
+    open-pull-requests-limit: 7
+    pull-request-branch-name:
+      separator: "-"
