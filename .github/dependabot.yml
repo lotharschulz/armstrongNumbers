@@ -42,3 +42,18 @@ updates:
     open-pull-requests-limit: 7
     pull-request-branch-name:
       separator: "-"
+
+  - package-ecosystem: 'gradle'
+    directory: "/kotlin"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    target-branch: "gradle"
+    labels:
+      - "gradle"
+      - "dependencies"
+    open-pull-requests-limit: 7
+    pull-request-branch-name:
+      separator: "-"
