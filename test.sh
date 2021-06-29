@@ -20,6 +20,7 @@ lein test
 cd ..
 cd typescript
 yarn install
+yarn lint
 yarn test
 cd ..
 cd kotlin

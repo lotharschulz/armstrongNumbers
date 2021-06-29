@@ -1,10 +1,11 @@
 {
-  "name": "@exercism/typescript",
+  "name": "typescript-armstrongnumbers",
   "description": "Exercism exercises in Typescript.",
   "private": true,
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/exercism/typescript"
+    "url": "https://github.com/lotharschulz/armstrongNumbers/tree/main/typescript"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -25,7 +26,7 @@
     "typescript": "^4.1.3"
   },
   "scripts": {
-    "test": "yarn lint:types && jest --no-cache",
+    "test": "jest --no-cache",
     "lint": "yarn lint:types && yarn lint:ci",
     "lint:types": "yarn tsc --noEmit -p .",
     "lint:ci": "eslint . --ext .tsx,.ts"
