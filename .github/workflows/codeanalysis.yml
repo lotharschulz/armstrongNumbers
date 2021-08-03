@@ -3,7 +3,7 @@ name: static code analysis
 on: push
 
 jobs:
-  detekt:
+  static-code-analysis:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code

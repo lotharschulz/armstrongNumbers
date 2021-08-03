@@ -10,8 +10,10 @@ const val ZERO = 0
 const val ONE = 1
 
 fun main() {
-    println( "armstrong numbers between $START_NUMBER_RANGE & $END_NUMBER_RANGE are: " +
-        "${Armstrong.getArmstrongNumbers(START_NUMBER_RANGE,END_NUMBER_RANGE)}" )
+    println(
+        "armstrong numbers between $START_NUMBER_RANGE & $END_NUMBER_RANGE are: " +
+        "${Armstrong.getArmstrongNumbers(START_NUMBER_RANGE,END_NUMBER_RANGE)}"
+    )
 }
 
 object Armstrong {
