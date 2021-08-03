@@ -2,11 +2,11 @@ package info.ls.armstrong
 
 import kotlin.math.absoluteValue
 
-val start = 100
-val end = 999
+const START_NUMBER_RANGE = 100
+const END_NUMBER_RANGE = 999
 
 fun main() {
-    println("armstrong numbers between 100 & 999 are: ${Armstrong.getArmstrongNumbers(start,end)}")
+    println("armstrong numbers between 100 & 999 are: ${Armstrong.getArmstrongNumbers(START_NUMBER_RANGE,END_NUMBER_RANGE)}")
 }
 
 object Armstrong {
