@@ -1,0 +1,16 @@
+name: static code analysis
+
+on: push
+
+jobs:
+  detekt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: detekt - kotlin
+        uses: natiginfo/action-detekt-all@1.17.1
+      - name: mobsfscan - kotlin
+        uses: MobSF/mobsfscan@main
+        with:
+          args: '. --json'
