@@ -74,7 +74,8 @@ yarn test
 
 #### lint
 ```sh
-TODO: https://github.com/lotharschulz/armstrongNumbers/issues/22
+yarn lint
+yarn lint:ci
 ```
 
 
