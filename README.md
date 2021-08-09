@@ -74,7 +74,8 @@ yarn test
 
 #### lint
 ```sh
-TODO: https://github.com/lotharschulz/armstrongNumbers/issues/22
+yarn lint
+yarn lint:ci
 ```
 
 
@@ -92,4 +93,19 @@ TODO: https://github.com/lotharschulz/armstrongNumbers/issues/22
 #### lint
 ```sh
 ./gradlew ktlintCheck
+```
+
+#### static code analysis
+
+##### detekt
+
+```sh
+./gradlew detekt
+```
+
+##### mobsfscan
+
+```sh
+# installation - pip3 install mobsfscan
+mobsfscan src/
 ```
