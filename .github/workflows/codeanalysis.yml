@@ -3,7 +3,7 @@ name: static code analysis
 on: push
 
 jobs:
-  static-code-analysis:
+  kotlin-static-code-analysis:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code

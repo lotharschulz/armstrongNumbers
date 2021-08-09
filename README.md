@@ -94,3 +94,18 @@ yarn lint:ci
 ```sh
 ./gradlew ktlintCheck
 ```
+
+#### static code analysis
+
+##### detekt
+
+```sh
+./gradlew detekt
+```
+
+##### mobsfscan
+
+```sh
+# installation - pip3 install mobsfscan
+mobsfscan src/
+```
