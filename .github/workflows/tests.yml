@@ -50,8 +50,6 @@ jobs:
     - name: test
       run: |
         cd scala
-        # https://github.com/sbt/sbt/issues/2295#issuecomment-162546065
-        sudo apt-get install ca-certificates-java
         sbt -v +test
 
   python:
