@@ -107,3 +107,14 @@ yarn lint:ci
 # installation - pip3 install mobsfscan
 mobsfscan src/
 ```
+
+## golang
+
+#### run
+```sh
+todo
+```
+#### test
+```sh
+todo
+```
