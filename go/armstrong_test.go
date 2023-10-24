@@ -15,7 +15,7 @@ func TestThreeDigitArmstrongNumbers(t *testing.T) {
 	expectedList.PushBack(407)
 
 
-	if observed := GenerateArmstrongNumbers(); !reflect.DeepEqual(observed, expectedList) {
+	if observed := GenerateThreeDigitArmstrongNumbers(); !reflect.DeepEqual(observed, expectedList) {
 		fmt.Println("expected list and observed list are different, however should be equal")
 		fmt.Println("\nexpected list: ")
 		for e := expectedList.Front(); e != nil; e = e.Next() {

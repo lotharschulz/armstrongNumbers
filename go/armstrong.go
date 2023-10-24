@@ -5,16 +5,16 @@ import (
 	"math"
 )
 
-func GenerateArmstrongNumbers() *list.List {
-	expectedList := list.New()
+func GenerateThreeDigitArmstrongNumbers() *list.List {
+	expectedArmstrongNumberList := list.New()
 
     for i := 99; i < 1001; i++ {
         if IsArmstrongNumber(i) {
-            expectedList.PushBack(i)
+            expectedArmstrongNumberList.PushBack(i)
         }
     }
 
-	return expectedList
+	return expectedArmstrongNumberList
 }
 
 // determines if a given number is an Armstrong number
@@ -22,8 +22,8 @@ func IsArmstrongNumber(n int) bool {
 	if n < 0 {
         return false
     }
-	digits := getDigits(n)
-    numberOfDigits := getNumberOfDigits(digits)
+	digits := GetDigits(n)
+    numberOfDigits := GetNumberOfDigits(digits)
     total := 0
 	for _, v := range digits{
         total = total + int(math.Pow(float64(v),float64(numberOfDigits)))
@@ -36,24 +36,24 @@ func IsArmstrongNumber(n int) bool {
 }
 
 // returns the digits with a given integer
-func getDigits(n int) []int{
+func GetDigits(n int) []int{
     digits := []int{}
     for n !=0 {
         digits = append(digits, n % 10)
         n /= 10
     }
-    reverseInt(digits)
+    ReverseInt(digits)
     return digits
 }
 
 // reverses a given int array
-func reverseInt(s []int) {
+func ReverseInt(s []int) {
     for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
             s[i], s[j] = s[j], s[i]
     }
 }
 
 // returns the number of digits/integers of an int array
-func getNumberOfDigits(digits []int) int{
+func GetNumberOfDigits(digits []int) int{
 	return len(digits)
 }

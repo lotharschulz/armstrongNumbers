@@ -116,5 +116,5 @@ todo
 ```
 #### test
 ```sh
-todo
+go test
 ```
