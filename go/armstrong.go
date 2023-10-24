@@ -46,6 +46,8 @@ func GetDigits(n int) []int {
 	return digits
 }
 
+// @TODO: implement alternative version based on string
+
 // reverses a given int array
 func ReverseInt(s []int) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
@@ -57,3 +59,5 @@ func ReverseInt(s []int) {
 func GetNumberOfDigits(digits []int) int {
 	return len(digits)
 }
+
+// @TODO: implement alternative version based on string
