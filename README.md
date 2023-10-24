@@ -108,7 +108,7 @@ yarn lint:ci
 mobsfscan src/
 ```
 
-## golang
+## go (golang)
 
 #### run
 ```sh
