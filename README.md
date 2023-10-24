@@ -118,3 +118,8 @@ todo
 ```sh
 go test
 ```
+
+#### format
+```sh
+gofmt -w armstrong.go
+```
