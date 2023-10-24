@@ -7,7 +7,7 @@ import (
 	"reflect"
 )
 
-func TestArmstrongNumbers(t *testing.T) {
+func TestThreeDigitArmstrongNumbers(t *testing.T) {
 	expectedList := list.New()
 	expectedList.PushBack(153)
 	expectedList.PushBack(370)
