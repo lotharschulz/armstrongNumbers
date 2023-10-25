@@ -1,4 +1,4 @@
-package armstrong
+package main
 
 import (
 	"fmt"

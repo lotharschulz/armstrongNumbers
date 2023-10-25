@@ -112,8 +112,9 @@ mobsfscan src/
 
 #### run
 ```sh
-todo
+go run armstrong.go
 ```
+
 #### test
 ```sh
 go test

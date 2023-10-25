@@ -1,7 +1,8 @@
-package armstrong
+package main
 
 import (
 	"container/list"
+	"fmt"
 	"math"
 	"strconv"
 )
@@ -9,7 +10,8 @@ import (
 func GenerateThreeDigitArmstrongNumbers() *list.List {
 	expectedArmstrongNumberList := list.New()
 
-	for i := 99; i < 1001; i++ {
+	for i := 100; i < 1000; i++ {
+		// fmt.Println(i)
 		if IsArmstrongNumber(i) {
 			expectedArmstrongNumberList.PushBack(i)
 		}
@@ -74,4 +76,13 @@ func GetNumberOfDigits(digits []int) int {
 // returns the number of digits/integers of an rune array
 func GetNumberOfDigitsFromeRuneArray(digits []rune) int {
 	return len(digits)
+}
+
+// main function
+func main() {
+	fmt.Println("Armstrong numbers (last item in curly brackets)")
+	armstrongNumbers := GenerateThreeDigitArmstrongNumbers()
+	for e := armstrongNumbers.Front(); e != nil; e = e.Next() {
+		fmt.Println(e)
+	}
 }
