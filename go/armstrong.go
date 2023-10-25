@@ -3,6 +3,7 @@ package armstrong
 import (
 	"container/list"
 	"math"
+	"strconv"
 )
 
 func GenerateThreeDigitArmstrongNumbers() *list.List {
@@ -24,6 +25,11 @@ func IsArmstrongNumber(n int) bool {
 	}
 	digits := GetDigits(n)
 	numberOfDigits := GetNumberOfDigits(digits)
+
+	// alternative implementation via string conversion
+	// digits := GetDigitsViaStringConversation(n)
+	// numberOfDigits := GetNumberOfDigitsFromeRuneArray(digits)
+	
 	total := 0
 	for _, v := range digits {
 		total = total + int(math.Pow(float64(v), float64(numberOfDigits)))
@@ -35,7 +41,7 @@ func IsArmstrongNumber(n int) bool {
 
 }
 
-// returns the digits with a given integer
+// returns the digits with a given integer without string conversation
 func GetDigits(n int) []int {
 	digits := []int{}
 	for n != 0 {
@@ -46,7 +52,12 @@ func GetDigits(n int) []int {
 	return digits
 }
 
-// @TODO: implement alternative version based on string
+// returns the digits with a given integer using string conversation
+func GetDigitsViaStringConversation(n int) []rune {
+	str := strconv.Itoa(n)
+    strRune := []rune(str)
+	return strRune
+}
 
 // reverses a given int array
 func ReverseInt(s []int) {
@@ -60,4 +71,7 @@ func GetNumberOfDigits(digits []int) int {
 	return len(digits)
 }
 
-// @TODO: implement alternative version based on string
+// returns the number of digits/integers of an rune array
+func GetNumberOfDigitsFromeRuneArray(digits []rune) int {
+	return len(digits)
+}
