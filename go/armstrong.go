@@ -29,7 +29,7 @@ func IsArmstrongNumber(n int) bool {
 	// alternative implementation via string conversion
 	// digits := GetDigitsViaStringConversation(n)
 	// numberOfDigits := GetNumberOfDigitsFromeRuneArray(digits)
-	
+
 	total := 0
 	for _, v := range digits {
 		total = total + int(math.Pow(float64(v), float64(numberOfDigits)))
@@ -55,7 +55,7 @@ func GetDigits(n int) []int {
 // returns the digits with a given integer using string conversation
 func GetDigitsViaStringConversation(n int) []rune {
 	str := strconv.Itoa(n)
-    strRune := []rune(str)
+	strRune := []rune(str)
 	return strRune
 }
 
