@@ -11,7 +11,6 @@ func GenerateThreeDigitArmstrongNumbers() *list.List {
 	expectedArmstrongNumberList := list.New()
 
 	for i := 100; i < 1000; i++ {
-		// fmt.Println(i)
 		if IsArmstrongNumber(i) {
 			expectedArmstrongNumberList.PushBack(i)
 		}
@@ -31,6 +30,9 @@ func IsArmstrongNumber(n int) bool {
 	// alternative implementation via string conversion
 	// digits := GetDigitsViaStringConversation(n)
 	// numberOfDigits := GetNumberOfDigitsFromeRuneArray(digits)
+
+	fmt.Println(digits)
+	// fmt.Println(numberOfDigits)
 
 	total := 0
 	for _, v := range digits {
@@ -57,7 +59,12 @@ func GetDigits(n int) []int {
 // returns the digits with a given integer using string conversation
 func GetDigitsViaStringConversation(n int) []rune {
 	str := strconv.Itoa(n)
+	// fmt.Println(str)
 	strRune := []rune(str)
+	// for i := 0; i < len(strRune); i++ {
+    //     char := string(strRune[i])
+    //     fmt.Println(char)
+    // }
 	return strRune
 }
 
@@ -75,6 +82,11 @@ func GetNumberOfDigits(digits []int) int {
 
 // returns the number of digits/integers of an rune array
 func GetNumberOfDigitsFromeRuneArray(digits []rune) int {
+	// for i := 0; i < len(digits); i++ {
+    //     char := string(digits[i])
+    //     fmt.Println(char, i)
+    // }
+	// fmt.Println(len(digits))
 	return len(digits)
 }
 
