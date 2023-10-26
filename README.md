@@ -118,6 +118,7 @@ go run armstrong.go
 #### test
 ```sh
 go test
+go test -v --bench . --benchmem
 ```
 
 #### format
