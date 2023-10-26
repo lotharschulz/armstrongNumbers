@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 	"strconv"
+	// "reflect"
 )
 
 func GenerateThreeDigitArmstrongNumbers() *list.List {
@@ -24,19 +25,32 @@ func IsArmstrongNumber(n int) bool {
 	if n < 0 {
 		return false
 	}
-	digits := GetDigits(n)
-	numberOfDigits := GetNumberOfDigits(digits)
+	total := 0
+
+	// digits := GetDigits(n)
+	// numberOfDigits := GetNumberOfDigits(digits)
+	// for _, v := range digits {
+	// 	total = total + int(math.Pow(float64(v), float64(numberOfDigits)))
+	// }
 
 	// alternative implementation via string conversion
-	// digits := GetDigitsViaStringConversation(n)
-	// numberOfDigits := GetNumberOfDigitsFromeRuneArray(digits)
-
-	fmt.Println(digits)
+	digitsAsRuneArray := GetDigitsViaStringConversation(n)
+	numberOfDigits := GetNumberOfDigitsFromeRuneArray(digitsAsRuneArray)
+	fmt.Println(digitsAsRuneArray)
 	// fmt.Println(numberOfDigits)
+	for _, v := range digitsAsRuneArray {
+		s := string(v)
+		// fmt.Print("converted to string: ")
+		// fmt.Println(s, reflect.TypeOf(s))
 
-	total := 0
-	for _, v := range digits {
-		total = total + int(math.Pow(float64(v), float64(numberOfDigits)))
+		f, err := strconv.ParseFloat(s, 64)
+		if err != nil {
+			panic("Conversion to float failed")
+		}		   
+		// fmt.Print("converted to float: ")
+		// fmt.Println(f, err, reflect.TypeOf(f))
+
+		total = total + int(math.Pow(f, float64(numberOfDigits)))
 	}
 	if total == n {
 		return true
@@ -59,12 +73,14 @@ func GetDigits(n int) []int {
 // returns the digits with a given integer using string conversation
 func GetDigitsViaStringConversation(n int) []rune {
 	str := strconv.Itoa(n)
-	// fmt.Println(str)
+	fmt.Println("str: " + str)
 	strRune := []rune(str)
-	// for i := 0; i < len(strRune); i++ {
-    //     char := string(strRune[i])
-    //     fmt.Println(char)
-    // }
+	for i := 0; i < len(strRune); i++ {
+        char := string(strRune[i])
+        fmt.Println(char, i)
+    }
+	fmt.Print("strRune: ")
+	fmt.Println(strRune)
 	return strRune
 }
 
