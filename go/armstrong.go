@@ -32,7 +32,6 @@ func GenerateThreeDigitArmstrongNumbersAlt() *list.List {
 	return expectedArmstrongNumberList
 }
 
-
 // determines if a given number is an Armstrong number
 func IsArmstrongNumber(n int) bool {
 	if n < 0 {
@@ -71,7 +70,6 @@ func IsArmstrongNumberAlt(n int) bool {
 	}
 	return false
 }
-
 
 // returns a float64 value from a rune if conversion is applicable, else panic
 func RuneToFloat(r rune) float64 {
