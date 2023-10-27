@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java-version }}
           distribution: 'adopt'
@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: install jdk 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -58,10 +58,11 @@ jobs:
       fail-fast: false
       matrix:
         python-version: [3.8] # 2.7
+    name: Python version ${{ matrix.python-version }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -87,10 +88,11 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [12.x, 14.x] # 10.x, 
+    name: Typescript version ${{ matrix.node-version }}
     steps:
     - uses: actions/checkout@v4
     - name: node v ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
@@ -109,7 +111,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java-version }}
           distribution: 'adopt'
@@ -126,7 +128,7 @@ jobs:
       fail-fast: false
       matrix:
         go-version: [ '1.19', '1.20', '1.21.x' ]
-    name: Go version ${{ matrix.java-version }}
+    name: Go version ${{ matrix.go-version }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Go ${{ matrix.go-version }}
