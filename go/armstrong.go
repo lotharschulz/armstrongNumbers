@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"math"
 	"strconv"
-	// "reflect"
 )
 
 func GenerateThreeDigitArmstrongNumbers() *list.List {
