@@ -124,4 +124,5 @@ go test -v --bench . --benchmem
 #### format
 ```sh
 gofmt -w armstrong.go
+gofmt -w armstrong_test.go
 ```
