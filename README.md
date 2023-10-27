@@ -107,3 +107,22 @@ yarn lint:ci
 # installation - pip3 install mobsfscan
 mobsfscan src/
 ```
+
+## go (golang)
+
+#### run
+```sh
+go run armstrong.go
+```
+
+#### test
+```sh
+go test
+go test -v --bench . --benchmem
+```
+
+#### format
+```sh
+gofmt -w armstrong.go
+gofmt -w armstrong_test.go
+```

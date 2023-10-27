@@ -9,9 +9,9 @@ jobs:
         java-version: [ '8', '11', '14', '15' ]
     name: java version ${{ matrix.java-version }} 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java-version }}
           distribution: 'adopt'
@@ -22,9 +22,9 @@ jobs:
   clojure:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: install jdk 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -45,7 +45,7 @@ jobs:
       JAVA_OPTS: -Xms2048M -Xmx2048M -Xss6M -XX:ReservedCodeCacheSize=256M -Dfile.encoding=UTF-8
       JVM_OPTS:  -Xms2048M -Xmx2048M -Xss6M -XX:ReservedCodeCacheSize=256M -Dfile.encoding=UTF-8
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: olafurpg/setup-scala@v12
     - name: test
       run: |
@@ -58,10 +58,11 @@ jobs:
       fail-fast: false
       matrix:
         python-version: [3.8] # 2.7
+    name: Python version ${{ matrix.python-version }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -87,10 +88,11 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [12.x, 14.x] # 10.x, 
+    name: Typescript version ${{ matrix.node-version }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: node v ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
@@ -107,9 +109,9 @@ jobs:
         java-version: [ '8', '11', '14', '15' ]
     name: jvm version ${{ matrix.java-version }} for kotlin
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java-version }}
           distribution: 'adopt'
@@ -119,3 +121,21 @@ jobs:
         run: cd kotlin && ./gradlew test
       - name: lint kotlin
         run: cd kotlin && ./gradlew ktlintCheck
+
+  golang:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        go-version: [ '1.19', '1.20', '1.21.x' ]
+    name: Go version ${{ matrix.go-version }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Display Go version
+        run: go version
+      - name: test go code
+        run: cd go && go test
