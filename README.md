@@ -126,3 +126,16 @@ go test -v --bench . --benchmem
 gofmt -w armstrong.go
 gofmt -w armstrong_test.go
 ```
+
+## rust
+
+#### run
+```sh
+cargo run
+```
+
+#### test
+```sh
+cargo test
+```
+
