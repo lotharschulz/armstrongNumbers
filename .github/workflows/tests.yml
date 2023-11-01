@@ -141,3 +141,32 @@ jobs:
         run: go version
       - name: test go code
         run: cd go && go test
+
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update local toolchain
+        run: |
+          rustup update
+          rustup component add clippy
+          rustup install nightly          
+      - name: Toolchain info
+        run: |
+          cargo --version --verbose
+          rustc --version
+          cargo clippy --version          
+      - name: Lint
+        run: |
+          cd rust
+          cargo fmt -- --check
+          cargo clippy -- -D warnings          
+      - name: Test
+        run: |
+          cd rust
+          cargo check
+          cargo test --all          
+      # - name: Build
+      #   run: |
+      #     cd phaser
+      #     cargo build --release  
