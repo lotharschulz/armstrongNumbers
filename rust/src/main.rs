@@ -1,5 +1,9 @@
 fn main() {
     let _r = three_digit_armstrong_numbers();
+    println!("three digits armstrong numbers: ");
+    for x in &_r {
+        println!("{x}");
+    }
 }
 
 pub fn three_digit_armstrong_numbers() -> Vec<u32> {
@@ -25,7 +29,7 @@ pub fn is_armstrong_number(num: u32) -> bool {
 }
 
 #[test]
-fn it_works() {
+fn check_three_digit_armstrong_numbers_vector_len() {
     let v: Vec<u32> = three_digit_armstrong_numbers();
     assert!(v.len() == 4);
 }
@@ -45,4 +49,13 @@ fn check_three_digit_armstrong_numbers() {
     assert!(!is_armstrong_number(372));
     assert!(is_armstrong_number(407));
     assert!(!is_armstrong_number(408));
+}
+
+#[test]
+fn check_three_digit_armstrong_numbers_vector() {
+    let v: Vec<u32> = three_digit_armstrong_numbers();
+    let expected = vec![153, 370, 371, 407];
+    
+    let matching = v.iter().zip(&expected).filter(|&(a, b)| a == b).count();
+    assert!(4 == matching)
 }

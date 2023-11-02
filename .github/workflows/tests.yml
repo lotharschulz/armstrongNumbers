@@ -146,6 +146,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: # remove when merging to main
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Update local toolchain
         run: |
           rustup update
@@ -156,17 +158,16 @@ jobs:
           cargo --version --verbose
           rustc --version
           cargo clippy --version          
-      - name: Lint
-        run: |
-          cd rust
-          cargo fmt -- --check
-          cargo clippy -- -D warnings          
       - name: Test
         run: |
           cd rust
           cargo check
           cargo test --all          
-      # - name: Build
+      - name: Lint
+        run: |
+          cd rust
+          cargo fmt -- --check
+          cargo clippy -- -D warnings       # - name: Build
       #   run: |
       #     cd phaser
       #     cargo build --release  
