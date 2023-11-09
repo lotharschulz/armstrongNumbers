@@ -46,8 +46,9 @@ pub fn is_armstrong_number(num: u32) -> bool {
 
 pub fn is_armstrong_number_alt(input: u32) -> bool {
     let exponent = get_digits(input);
-    let r = get_digits(input).iter().map(|x: &u64| x.pow(exponent)).sum();
-    return r == input;
+    let num_of_digits = get_number_of_digits_log(input); 
+    let sum = exponent.iter().map(|&digit| (digit as f64).powf(num_of_digits as f64)).sum::<f64>().round() as u32; 
+    input == sum 
 }
 
 pub fn get_digits(input: u32) -> Vec<u32> {
