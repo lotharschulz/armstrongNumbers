@@ -47,7 +47,11 @@ pub fn is_armstrong_number(num: u32) -> bool {
 pub fn is_armstrong_number_alt(input: u32) -> bool {
     let exponent = get_digits(input);
     let num_of_digits = get_number_of_digits_log(input); 
-    let sum = exponent.iter().map(|&digit| (digit as f64).powf(num_of_digits as f64)).sum::<f64>().round() as u32; 
+    let sum = exponent
+        .iter()
+        .map(|&digit| (digit as f64).powf(num_of_digits as f64))
+        .sum::<f64>()
+        .round() as u32; 
     input == sum 
 }
 
@@ -57,7 +61,7 @@ pub fn get_digits(input: u32) -> Vec<u32> {
     if nmbr > 0 {
         while nmbr > 0 {
             result.push(nmbr % 10);
-            nmbr = nmbr / 10;
+            nmbr /= 10;
         }
         result.reverse();
     } else if input == 0 {
@@ -70,7 +74,7 @@ pub fn get_number_of_digits_log(input: u32) -> u32 {
     if input == 0 {
         return 1;
     } 
-    return input.checked_ilog10().unwrap_or(0) + 1;
+    input.checked_ilog10().unwrap_or(0) + 1
 }
 
 #[test]
