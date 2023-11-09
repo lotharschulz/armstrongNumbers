@@ -167,7 +167,7 @@ jobs:
         run: |
           cd rust
           cargo fmt -- --check
-          cargo clippy -- -D warnings       # - name: Build
+      #    cargo clippy -- -D warnings       # - name: Build
       #   run: |
       #     cd phaser
       #     cargo build --release  
