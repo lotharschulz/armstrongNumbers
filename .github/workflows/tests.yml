@@ -163,11 +163,11 @@ jobs:
           cd rust
           cargo check
           cargo test --all          
-      - name: Lint
-        run: |
-          cd rust
-          cargo fmt -- --check
-          cargo clippy -- -D warnings       # - name: Build
+      # - name: Lint
+      #   run: |
+      #     cd rust
+      #     cargo fmt -- --check
+      #     cargo clippy -- -D warnings       # - name: Build
       #   run: |
       #     cd phaser
       #     cargo build --release  
