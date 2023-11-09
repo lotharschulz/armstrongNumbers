@@ -40,19 +40,18 @@ pub fn is_armstrong_number(num: u32) -> bool {
         .map(|x| x.to_digit(10).unwrap() as u64)
         .map(|x| x.pow(exponent))
         .sum();
-
     sum == num as u64
 }
 
 pub fn is_armstrong_number_alt(input: u32) -> bool {
     let exponent = get_digits(input);
-    let num_of_digits = get_number_of_digits_log(input); 
+    let num_of_digits = get_number_of_digits_log(input);
     let sum = exponent
         .iter()
         .map(|&digit| (digit as f64).powf(num_of_digits as f64))
         .sum::<f64>()
-        .round() as u32; 
-    input == sum 
+        .round() as u32;
+    input == sum
 }
 
 pub fn get_digits(input: u32) -> Vec<u32> {
@@ -73,7 +72,7 @@ pub fn get_digits(input: u32) -> Vec<u32> {
 pub fn get_number_of_digits_log(input: u32) -> u32 {
     if input == 0 {
         return 1;
-    } 
+    }
     input.checked_ilog10().unwrap_or(0) + 1
 }
 
@@ -108,7 +107,7 @@ fn check_three_digit_armstrong_numbers_vector() {
 }
 
 #[test]
-fn check_get_digits(){
+fn check_get_digits() {
     let r1 = get_digits(100).len();
     assert!(3 == r1);
     let r2 = get_digits(10).len();
