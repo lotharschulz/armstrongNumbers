@@ -146,8 +146,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: # remove when merging to main
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: Update local toolchain
         run: |
           rustup update
