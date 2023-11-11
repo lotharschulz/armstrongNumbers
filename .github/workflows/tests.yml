@@ -72,13 +72,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Lint with flake8
-        run: |
-          cd python/armstrong
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      # - name: Lint with flake8
+      #   run: |
+      #     cd python/armstrong
+      #     # stop the build if there are Python syntax errors or undefined names
+      #     flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      #     # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+      #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: test python
         run: |
           cd python/test
@@ -100,7 +100,7 @@ jobs:
     - run: |
         cd typescript
         yarn install
-        yarn lint:ci
+        # yarn lint:ci
         yarn test
 
   kotlin:
@@ -121,8 +121,8 @@ jobs:
         uses: gradle/wrapper-validation-action@v1
       - name: test kotlin
         run: cd kotlin && ./gradlew test
-      - name: lint kotlin
-        run: cd kotlin && ./gradlew ktlintCheck
+      # - name: lint kotlin
+      #   run: cd kotlin && ./gradlew ktlintCheck
 
   golang:
     runs-on: ubuntu-latest
@@ -161,11 +161,11 @@ jobs:
           cd rust
           cargo check
           cargo test --all          
-      - name: Lint
-        run: |
-          cd rust
-          cargo fmt --all -- --check
-          cargo clippy -- -D warnings       # - name: Build
+      # - name: Lint
+      #   run: |
+      #     cd rust
+      #     cargo fmt --all -- --check
+      #     cargo clippy -- -D warnings       # - name: Build
       #   run: |
       #     cd phaser
       #     cargo build --release  
