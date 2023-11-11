@@ -1,4 +1,4 @@
-name: static code analysis
+name: Lint
 
 on: push
 
