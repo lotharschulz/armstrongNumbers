@@ -15,7 +15,7 @@ distro==1.5.0
 distro-info===0.23ubuntu1
 gyp==0.1
 httplib2>=0.19.0
-idna==2.10
+idna==3.7
 jeepney==0.4.3
 kazam==1.4.5
 keyring==21.3.0
