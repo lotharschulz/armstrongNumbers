@@ -8,7 +8,7 @@
     "url": "https://github.com/lotharschulz/armstrongNumbers/tree/main/typescript"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.29.6",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
     "@babel/plugin-syntax-bigint": "^7.8.3",
